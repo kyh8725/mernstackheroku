@@ -1,0 +1,205 @@
+.carousel-inner > .carousel-item > img {
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.carousel-item {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.porsche-hover {
+  color: white;
+  &:hover {
+    color: #fb2851;
+  }
+}
+
+.ferrari-hover {
+  color: white;
+  &:hover {
+    color: #e5b106;
+  }
+}
+
+.lambo-hover {
+  color: white;
+  &:hover {
+    color: #8ff983;
+  }
+}
+.mclaren-hover {
+  color: white;
+  &:hover {
+    color: #f4623a;
+  }
+}
+
+.vehicle-make {
+  z-index: 1000;
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  margin: 0;
+  animation-name: textMotionMake;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    transition: 0.4s ease-in;
+    transform: translateY(0.3vw) translateX(7.5vw) !important;
+  }
+}
+@keyframes textMotionMake {
+  0% {
+    transform: translateX(-1000vw);
+  }
+  100% {
+    transform: translateX(7vw);
+    font-size: 5vw;
+  }
+}
+
+.vehicle-ferrari {
+  z-index: 1000;
+  position: absolute;
+  top: 10vw;
+  left: 1vw;
+  margin: 0;
+  animation-name: textMotionFerrari;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    transition: 0.4s ease-in;
+    transform: translateY(0.3vw) translateX(12.5vw) !important;
+  }
+}
+@keyframes textMotionFerrari {
+  0% {
+    transform: translateX(-1000vw);
+  }
+  100% {
+    transform: translateX(12vw);
+    font-size: 5vw;
+  }
+}
+.vehicle-porsche {
+  position: absolute;
+  z-index: 1000;
+  animation-name: textMotionPorsche;
+  top: 7vw;
+  left: 1vw;
+  margin: 0;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    transition: 0.4s ease-in;
+    transform: translateY(0.3vw) translateX(72vw) !important;
+  }
+}
+@keyframes textMotionPorsche {
+  0% {
+    transform: translateX(1000vw);
+  }
+  100% {
+    transform: translateX(72.5vw);
+    font-size: 5vw;
+  }
+}
+.vehicle-lambo {
+  z-index: 1000;
+  position: absolute;
+  animation-name: textMotionLambo;
+  top: 0;
+  left: 1vw;
+  margin: 0;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    transition: 0.4s ease-in;
+    transform: translateY(0.3vw) translateX(5.5vw) !important;
+  }
+}
+@keyframes textMotionLambo {
+  0% {
+    transform: translateX(-1000vw);
+  }
+  100% {
+    transform: translateX(6vw);
+    font-size: 5vw;
+  }
+}
+.vehicle-lambo2 {
+  z-index: 1000;
+  position: absolute;
+  animation-name: textMotionLambo2;
+  top: 3vw;
+  left: 1vw;
+  margin: 0;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    transition: 0.4s ease-in;
+    transform: translateY(0.3vw) translateX(65.5vw) !important;
+  }
+}
+
+@keyframes textMotionLambo2 {
+  0% {
+    transform: translateX(1000vw);
+  }
+  100% {
+    transform: translateX(65vw);
+    font-size: 5vw;
+  }
+}
+.vehicle-mclaren {
+  z-index: 1000;
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  margin: 0;
+  animation-name: textMotionMclaren;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes textMotionMclaren {
+  0% {
+    transform: translateX(1000vw);
+  }
+  100% {
+    transform: translateX(60vw);
+    font-size: 5vw;
+  }
+}
+
+.vehicle-p1 {
+  z-index: 1000;
+  position: absolute;
+  animation-name: textMotionMclaren;
+  top: 7vw;
+  left: 1vw;
+  margin: 0;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes textMotionMclaren {
+  0% {
+    transform: translateX(1000vw);
+  }
+  100% {
+    transform: translateX(78vw);
+    font-size: 5vw;
+  }
+}

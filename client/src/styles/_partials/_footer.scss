@@ -1,0 +1,80 @@
+.footer {
+  color: white;
+  background-color: #303841;
+
+  &__top {
+    font-family: "Dosis";
+    color: #303841;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    ul,
+    li {
+      list-style-type: none;
+      text-align: left;
+      padding: 0;
+    }
+    li a {
+      text-decoration: none;
+      color: #303841;
+      line-height: 2rem;
+      &:hover {
+        color: rgba(0, 140, 255, 0.781);
+      }
+    }
+    &-first,
+    &-second,
+    &-third {
+      flex: 0.33;
+      margin: 1rem;
+      &-title {
+        font-weight: bolder;
+        border-bottom: 2px solid #303841;
+      }
+    }
+  }
+
+  &__bottom {
+    a {
+      color: white;
+    }
+    ul {
+      list-style-type: none;
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+  }
+  .fa {
+    padding: 20px;
+    font-size: 2.5rem;
+    width: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    margin: 0.1rem 0.5rem;
+    border-radius: 50%;
+  }
+  .fa:hover {
+    color: rgb(107, 107, 107);
+    transition: 0.4s ease;
+    transform: translateY(0.2rem);
+  }
+}
+
+@include tablet {
+  .footer {
+    &__top {
+      padding: 0 3rem;
+    }
+  }
+}
+
+@include desk {
+  .footer {
+    &__top {
+      padding: 0 10rem;
+    }
+  }
+}

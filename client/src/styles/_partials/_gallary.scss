@@ -1,0 +1,122 @@
+.gallary {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  width: 80vw;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  vertical-align: center;
+  margin: auto auto;
+  margin-bottom: 3rem;
+
+  &-left {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    &-top {
+      flex: 0.7;
+      margin-bottom: 0.3rem;
+      &-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-bottom {
+      display: flex;
+      flex: 0.3;
+      margin-bottom: 1rem;
+
+      &-left-image {
+        flex: 0.6;
+      }
+      &-right-image {
+        flex: 0.4;
+      }
+
+      &-left-image {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
+  &-right {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    &-top {
+      display: flex;
+      flex: 0.3;
+      margin-top: 0.3rem;
+      &-right-image {
+        flex: 0.6;
+      }
+
+      &-left-image {
+        flex: 0.4;
+        margin-right: 0.3rem;
+      }
+    }
+    &-bottom {
+      flex: 0.7;
+    }
+  }
+}
+
+@include desk {
+  .gallary {
+    &-left,
+    &-right {
+      flex: 0.45;
+    }
+
+    &-left {
+      &-bottom {
+        margin-bottom: 0;
+      }
+    }
+    &-right {
+      flex-direction: column;
+      margin-left: 0.3rem;
+      &-top {
+        margin-top: 0;
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}
+.image-box {
+  width: 80vw;
+  max-height: 90%;
+  background-color: rgba(189, 189, 189, 0.3) !important;
+  img {
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    max-height: 100% !important;
+    object-fit: cover;
+  }
+}
+
+.react-fancybox,
+.thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail img {
+  z-index: 998;
+  transition: opacity 0.4s ease;
+  opacity: 80%;
+  &:hover {
+    cursor: pointer;
+    opacity: 100%;
+  }
+  max-width: 100% !important;
+}

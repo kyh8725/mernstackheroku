@@ -1,0 +1,28 @@
+.discover {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 20rem;
+  margin: 1rem;
+  overflow: hidden;
+  img:hover {
+    transition: 0.4s ease;
+    -moz-transition: ease 0.4s;
+    -webkit-transition: ease 0.4s;
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+.card-text {
+  -webkit-line-clamp: 3;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
