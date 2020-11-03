@@ -81,6 +81,10 @@ passport.deserializeUser((user, cb) => {
 const emailRoute = require("./routes/api/emailRoute");
 app.use("/email", emailRoute);
 
+//import router paths
+const routes = require("./routes/api/passportRoute");
+app.use("/passport", routes);
+
 const PORT = process.env.PORT || 5000;
 
 //Static folder
