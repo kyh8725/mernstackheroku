@@ -8,8 +8,6 @@ import ProtectedPage from "./components/ProtectedPage";
 import Contact from "./components/PublicPage/Contact";
 import Footer from "./components/PublicPage/Footer";
 import Vehicles from "./components/PublicPage/Vehicles";
-import "./styles/index.css";
-import "react-fancybox/lib/fancybox.css";
 
 export default class App extends Component {
   render() {

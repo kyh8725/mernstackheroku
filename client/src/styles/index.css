@@ -721,6 +721,10 @@
   }
 }
 
+#react-modal-image-img {
+  opacity: 100% !important;
+}
+
 .gallary {
   width: 80vw;
   width: 100%;
@@ -745,6 +749,13 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+  opacity: 80%;
+}
+
+.gallary img:hover {
+  opacity: 100%;
 }
 
 .gallary-left {
