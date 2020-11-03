@@ -3,7 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 
 // initialize a default redirect path variable for successful auth
-let authRedirect = "/";
+let authRedirect = "/home";
 
 // create a login failure endpoint
 router.get("/loginFailed", (req, res, next) => {

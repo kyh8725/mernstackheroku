@@ -16,7 +16,9 @@ class PrivateRoute extends Component {
     // don't forget to set axios to send requests withCredentials
     // it allows for cookies to be passed to backend
     axios
-      .get(`${this.state.API_URL}/check-auth`, { withCredentials: true })
+      .get(`${this.state.API_URL}/passport/check-auth`, {
+        withCredentials: true,
+      })
       .then((res) => {
         this.setState({
           isAuthenticating: false,
@@ -57,7 +59,7 @@ class PrivateRoute extends Component {
           ) : (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: "/passport/login",
                 state: { from: props.location },
               }}
             />

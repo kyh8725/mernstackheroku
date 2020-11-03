@@ -12,7 +12,9 @@ class AuthButton extends Component {
   componentDidMount() {
     // Check auth
     axios
-      .get(`${this.state.API_URL}/check-auth`, { withCredentials: true })
+      .get(`${this.state.API_URL}/passport/check-auth`, {
+        withCredentials: true,
+      })
       .then((res) => {
         this.setState({
           isAuthenticated: true,
@@ -30,7 +32,7 @@ class AuthButton extends Component {
     // Change location to /logout server route while passing it
     // the URL for redirecting back to a client
     const url = `${window.location.protocol}//${window.location.host}`;
-    window.location = `${this.state.API_URL}/logout?from=${url}`;
+    window.location = `${this.state.API_URL}/passport/logout?from=${url}`;
   };
 
   render() {

@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const session = require("express-session");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -82,14 +83,14 @@ app.use("/email", emailRoute);
 
 //import router paths
 const routes = require("./routes/api/passportRoute");
-app.use("/", routes);
+app.use("/passport", routes);
 
 const PORT = process.env.PORT || 5000;
 
 //Static folder
 app.use("client/public", express.static(path.join(__dirname, "public")));
 
-// routes
+// routesa
 const vehicleRoute = require("./routes/api/vehicleRoute");
 app.use("/vehicles", vehicleRoute);
 // MongoDB

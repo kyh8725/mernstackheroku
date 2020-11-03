@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { Button } from "react-bootstrap";
 
 class Login extends Component {
@@ -13,7 +12,7 @@ class Login extends Component {
     // are coming from, otherwise redirect to / after login
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const url = `${window.location.protocol}//${window.location.host}${from.pathname}`;
-    window.location = `${this.state.API_URL}/login/?from=${url}`;
+    window.location = `${this.state.API_URL}/passport/login/?from=${url}`;
   };
   loginGoogle = () => {
     // Change location to /login server route while sending a redirect url
@@ -21,7 +20,7 @@ class Login extends Component {
     // are coming from, otherwise redirect to / after login
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const url = `${window.location.protocol}//${window.location.host}${from.pathname}`;
-    window.location = `${this.state.API_URL}/google/?from=${url}`;
+    window.location = `${this.state.API_URL}/passport/google/?from=${url}`;
   };
 
   render() {
