@@ -13,9 +13,6 @@ class Login extends Component {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const url = `${window.location.protocol}//${window.location.host}${from.pathname}`;
     window.location = `${this.state.API_URL}/passport/login/?from=${url}`;
-    console.log(window.location.protocol);
-    console.log(window.location.host);
-    console.log(from.pathname);
   };
   loginGoogle = () => {
     // Change location to /login server route while sending a redirect url
@@ -40,14 +37,15 @@ class Login extends Component {
             className="login__button"
             onClick={this.login}
           >
-            Github
+            <i className="fa fa-github"> Github</i>
           </Button>
+
           <Button
             variant="danger"
             className="login__button"
             onClick={this.loginGoogle}
           >
-            Google+
+            <i className="fa fa-google"> Google</i>
           </Button>
         </div>
       </div>

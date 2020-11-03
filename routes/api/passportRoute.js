@@ -3,7 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 
 // initialize a default redirect path variable for successful auth
-let authRedirect = "/home";
+let authRedirect = "/";
 
 // create a login failure endpoint
 router.get("/loginFailed", (req, res, next) => {
@@ -30,7 +30,7 @@ router.get("/logout", (req, res) => {
   res.redirect(req.query.from);
 });
 
-//GitHub Auth CallBack/Redirect http:://localhost:5000/auth
+//GitHub Auth CallBack/Redirect
 router.get("/auth", (req, res) => {
   passport.authenticate("github", {
     successRedirect: authRedirect,
@@ -38,7 +38,7 @@ router.get("/auth", (req, res) => {
   })(req, res);
 });
 
-//Google Auth CallBack/Redirect http:://localhost:5000/googleauth
+//Google Auth CallBack/Redirect
 router.get("/googleauth", (req, res) => {
   passport.authenticate("google", {
     successRedirect: authRedirect,
