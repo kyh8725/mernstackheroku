@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 
 class PrivateRoute extends Component {
@@ -15,7 +16,7 @@ class PrivateRoute extends Component {
     // don't forget to set axios to send requests withCredentials
     // it allows for cookies to be passed to backend
     axios
-      .get(`/check-auth`, { withCredentials: true })
+      .get(`${this.state.API_URL}/check-auth`, { withCredentials: true })
       .then((res) => {
         this.setState({
           isAuthenticating: false,
@@ -45,7 +46,12 @@ class PrivateRoute extends Component {
         render={(props) => {
           // While authenticating, don't show anything
           // alternatively this could be a loading indicator
-          if (this.state.isAuthenticating) return null;
+          if (this.state.isAuthenticating)
+            return (
+              <div className="spinner-wrap">
+                <Spinner animation="border" />
+              </div>
+            );
           return this.state.isAuthenticated ? (
             <Component user={this.state.user} {...props} />
           ) : (

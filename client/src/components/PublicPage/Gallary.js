@@ -1,6 +1,5 @@
 import React from "react";
-import ReactFancyBox from "react-fancybox";
-import "react-fancybox/lib/fancybox.css";
+import ModalImage from "react-modal-image";
 
 export default function Gallery() {
   return (
@@ -12,54 +11,30 @@ export default function Gallery() {
         <div className="gallary-left">
           <div className="gallary-left-top">
             <div className="gallary-left-top-image">
-              <ReactFancyBox
-                className="gallary-image"
-                thumbnail="/pic3.jpg"
-                image="/pic3.jpg"
-              />
+              <ModalImage small="/pic3.jpg" large="/pic3.jpg" alt="pic3" />
             </div>
           </div>
           <div className="gallary-left-bottom">
             <div className="gallary-left-bottom-left-image">
-              <ReactFancyBox
-                className="gallary-image"
-                thumbnail="/pic2.jpg"
-                image="/pic2.jpg"
-              />
+              <ModalImage small="/pic2.jpg" large="/pic2.jpg" alt="pic2" />
             </div>
             <div className="gallary-left-bottom-right-image">
-              <ReactFancyBox
-                className="gallary-image"
-                thumbnail="/pic4.jpg"
-                image="/pic4.jpg"
-              />
+              <ModalImage small="/pic4.jpg" large="/pic4.jpg" alt="pic4" />
             </div>
           </div>
         </div>
         <div className="gallary-right">
           <div className="gallary-right-top">
             <div className="gallary-right-top-left-image">
-              <ReactFancyBox
-                className="gallary-image"
-                thumbnail="/pic5.jpg"
-                image="/pic5.jpg"
-              />
+              <ModalImage small="/pic5.jpg" large="/pic5.jpg" alt="pic5" />
             </div>
             <div className="gallary-right-top-right-image">
-              <ReactFancyBox
-                className="gallary-image"
-                thumbnail="/pic1.jpg"
-                image="/pic1.jpg"
-              />
+              <ModalImage small="/pic1.jpg" large="/pic1.jpg" alt="pic1" />
             </div>
           </div>
           <div className="gallary-right-bottom">
             <div className="gallary-right-bottom-image">
-              <ReactFancyBox
-                className="gallary-image"
-                thumbnail="/pic6.jpg"
-                image="/pic6.jpg"
-              />
+              <ModalImage small="/pic6.jpg" large="/pic6.jpg" alt="pic6" />
             </div>
           </div>
         </div>

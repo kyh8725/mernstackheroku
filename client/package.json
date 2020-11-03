@@ -1,4 +1,5 @@
 {
+  "proxy": "https://sportscars.herokuapp.com",
   "name": "mernstackheroku",
   "version": "0.1.0",
   "private": true,
@@ -17,7 +18,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
-    "react-fancybox": "^0.2.5",
+    "react-modal-image": "^2.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },

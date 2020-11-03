@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 
 export default class Vehicles extends Component {
   state = {
     vehicles: [],
+    API_URL: process.env.REACT_APP_API_URL,
   };
 
   componentDidMount() {
-    axios.get(`/vehicles/allvehicles`).then((response) => {
+    axios.get(`${this.state.API_URL}/vehicles/allvehicles`).then((response) => {
       this.setState({ vehicles: response.data });
     });
   }
@@ -45,12 +47,20 @@ export default class Vehicles extends Component {
   };
 
   render() {
-    return (
-      <section className="vehicles">
-        <h3 className="vehicles__title">BUILD & PRICE</h3>
-        <h2 className="vehicles__sub-title">Select your Model</h2>
-        <div className="vehicles__models">{this.vehicleCard()}</div>
-      </section>
-    );
+    if (this.state.vehicles.length === 0) {
+      return (
+        <div className="spinner-wrap">
+          <Spinner animation="border" />
+        </div>
+      );
+    } else {
+      return (
+        <section className="vehicles">
+          <h3 className="vehicles__title">BUILD & PRICE</h3>
+          <h2 className="vehicles__sub-title">Select your Model</h2>
+          <div className="vehicles__models">{this.vehicleCard()}</div>
+        </section>
+      );
+    }
   }
 }
