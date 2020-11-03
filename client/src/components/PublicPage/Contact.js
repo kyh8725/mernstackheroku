@@ -33,21 +33,34 @@ export default class Contacts extends Component {
     return (
       <>
         <section className="contact">
-          <h1 className="contact__title">Contact Daniel</h1>
+          <h1 className="contact__title">Contact Us</h1>
           <h5 className="contact__description">
             Thank you for taking the time to explore my project.
           </h5>
           <p className="contact__description2">
             This project was first started with intention in practicing
             <strong> OAuth and MongoDB </strong>. It was expanded to a sports
-            car dealership-like web site because I like sports cars. Due to
-            short man-power, most of the links are external car dealership's
-            websites. self-built pages include /home, /vehicles, and /contact.
-            Tech used:{" "}
+            car dealership-like web site because I like sports cars. Most of the
+            links are external car dealership's websites at the moment.
+            Self-built pages include /home, /vehicles, /login, /contact,
+            /protected and /dealers. I'm tryting to continuosly build new pages
+            with new tech and functionality that I've never used before.
+          </p>
+          <p className="contact__description2">
             <strong>
-              HTML, CSS5, Sass, Bootstrap, JavaScript, React, Express, Node,
-              OAuth, MongoDB
+              Tech Used: HTML5, CSS3, Sass, Bootstrap, JavaScript, React,
+              Express, Node, OAuth, MongoDB Atlas, Heroku.
             </strong>
+          </p>
+          <p className="contact__description2">
+            New techs I encountered to use in this app are OAuth (github,
+            google+ strategy), MongoDB (Atlas, mongoose), and nodeMailer. Not
+            all CRUD functionality is implemented yet. The cars in /vehicles are
+            read from mongoDB atlas.
+          </p>
+          <p className="contact__description2">
+            sending email by the form below works locally, but I think it is
+            blocked due to security reasons. I'm looking for a solution.
           </p>
 
           <form className="contact__form" onSubmit={this.sendEmail}>

@@ -23,13 +23,11 @@ export default class App extends Component {
               return <Redirect to="/home" />;
             }}
           />
-          <Route path="/passport/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />
           <Route path="/home" component={PublicPage} />
           <Route path="/vehicles" component={Vehicles} />
           <Route path="/contact" component={Contact} />
-
           <Route path="/dealers" component={Dealers} />
-          <Route path="/contact" component={Contact} />
           <PrivateRoute path="/protected" component={ProtectedPage} />
         </div>
         <Footer />
