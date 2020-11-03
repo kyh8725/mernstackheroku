@@ -15,6 +15,75 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// instantiate Passport and Github + Google Strategy
+const passport = require("passport");
+const GitHubStrategy = require("passport-github").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+const passportConfig = {
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL,
+};
+
+const passportGoogleConfig = {
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK_URL,
+};
+
+// passport config
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+
+// passport.session middleware
+app.use(passport.session());
+
+passport.use(
+  new GitHubStrategy(passportConfig, function (
+    _accessToken,
+    _refreshToken,
+    profile,
+    cb
+  ) {
+    return cb(null, profile);
+  })
+);
+
+passport.use(
+  new GoogleStrategy(passportGoogleConfig, function (
+    _accessToken,
+    _refreshToken,
+    profile,
+    cb
+  ) {
+    return cb(null, profile);
+  })
+);
+
+// serializeUser and deserializeUser
+passport.serializeUser((user, cb) => {
+  cb(null, user);
+});
+
+passport.deserializeUser((user, cb) => {
+  cb(null, user);
+});
+
+//nodemailer
+const emailRoute = require("./routes/api/emailRoute");
+app.use("/email", emailRoute);
+
+//import router paths
+const routes = require("./routes/api/passportRoute");
+app.use("/", routes);
+
 const PORT = process.env.PORT || 5000;
 
 //Static folder
