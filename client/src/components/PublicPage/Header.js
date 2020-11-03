@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUser, faMap } from "@fortawesome/free-regular-svg-icons";
 
 export default function Header() {
   return (
@@ -33,7 +33,8 @@ export default function Header() {
                 <strong>VEHICLES</strong>
               </Nav.Link>
               <Nav.Link href="/dealers">
-                <MDBIcon icon="map-marker-alt" />
+                <FontAwesomeIcon icon={faMap} color="grey" size="lg" />{" "}
+                <strong> Dealers </strong>
               </Nav.Link>
               <Nav.Link href="/protected">
                 <FontAwesomeIcon icon={faUser} color="grey" size="lg" />{" "}
