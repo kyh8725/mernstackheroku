@@ -13,6 +13,9 @@ class Login extends Component {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const url = `${window.location.protocol}//${window.location.host}${from.pathname}`;
     window.location = `${this.state.API_URL}/passport/login/?from=${url}`;
+    console.log(window.location.protocol);
+    console.log(window.location.host);
+    console.log(from.pathname);
   };
   loginGoogle = () => {
     // Change location to /login server route while sending a redirect url
