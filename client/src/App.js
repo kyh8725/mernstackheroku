@@ -8,6 +8,7 @@ import ProtectedPage from "./components/ProtectedPage";
 import Contact from "./components/PublicPage/Contact";
 import Footer from "./components/PublicPage/Footer";
 import Vehicles from "./components/PublicPage/Vehicles";
+import Dealers from "./components/PublicPage/Dealers";
 
 export default class App extends Component {
   render() {
@@ -25,6 +26,9 @@ export default class App extends Component {
           <Route path="/passport/login" component={LoginPage} />
           <Route path="/home" component={PublicPage} />
           <Route path="/vehicles" component={Vehicles} />
+          <Route path="/contact" component={Contact} />
+
+          <Route path="/dealers" component={Dealers} />
           <Route path="/contact" component={Contact} />
           <PrivateRoute path="/protected" component={ProtectedPage} />
         </div>

@@ -6,9 +6,7 @@ require("dotenv").config();
 router.post("/send", async (req, res) => {
   const EmailAddress = process.env.EMAIL_ADDRESS;
   const transporter = nodemailer.createTransport({
-    host: "smtp.live.com",
-    port: 587,
-    secure: false,
+    service: "hotmail",
     auth: {
       user: EmailAddress,
       pass: process.env.EMAIL_PASS,
@@ -26,7 +24,7 @@ router.post("/send", async (req, res) => {
     },
     (err, data) => {
       if (err) {
-        console.log("error", err);
+        res.sendStatus(503).console.log("error", err);
       } else {
         res.sendStatus(200).console.log("email sent");
       }

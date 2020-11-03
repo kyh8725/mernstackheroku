@@ -10,7 +10,6 @@ export default class Contacts extends Component {
   sendEmail = async (event) => {
     this.setState({ loading: true });
     event.preventDefault();
-    event.target.reset();
     const data = {
       name: event.target.name.value,
       email: event.target.email.value,

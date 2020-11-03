@@ -123,13 +123,13 @@ export default function () {
           </ul>
         </div>
         <div className="footer__top-third">
-          <h5 className="footer__top-third-title"> About</h5>
+          <h5 className="footer__top-third-title">About</h5>
           <ul>
             <li>
               <a href="/contact">Contact Us</a>
             </li>
             <li>
-              <a href="/contact">Visit Us</a>
+              <a href="/dealers">Visit Us</a>
             </li>
             <li>
               <a href="/contact">Career</a>

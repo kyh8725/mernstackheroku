@@ -58,6 +58,11 @@ export default class Vehicles extends Component {
         <section className="vehicles">
           <h3 className="vehicles__title">BUILD & PRICE</h3>
           <h2 className="vehicles__sub-title">Select your Model</h2>
+          <p>
+            sorting button will be implemented. by type (SUV, sedan ...) and by
+            maker
+          </p>
+          <p>add to garage and features button not working yet.</p>
           <div className="vehicles__models">{this.vehicleCard()}</div>
         </section>
       );

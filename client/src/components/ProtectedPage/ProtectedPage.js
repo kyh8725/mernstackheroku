@@ -10,6 +10,8 @@ export default (props) => {
         <p>
           <strong>This page is under construction </strong>
         </p>
+        <p>saved vehicles will be shown here</p>
+        <p>you can check their specs, mileasges, maintenance info and etc.</p>
         <h1>{props.user.username || props.user.displayName}</h1>
       </section>
     </>
