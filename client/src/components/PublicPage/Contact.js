@@ -17,6 +17,7 @@ export default class Contacts extends Component {
       enthusiast: event.target.sportscar.value,
       comment: event.target.comment.value,
     };
+
     await axios
       .post(`${this.state.API_URL}/email/send`, JSON.stringify(data))
       .then((response) => {
@@ -59,8 +60,8 @@ export default class Contacts extends Component {
             read from mongoDB atlas.
           </p>
           <p className="contact__description2">
-            sending email by the form below works locally, but I think it is
-            blocked due to security reasons. I'm looking for a solution.
+            Sending email by the form below sends out undefined contents. I'm
+            looking for a solution.
           </p>
 
           <form className="contact__form" onSubmit={this.sendEmail}>

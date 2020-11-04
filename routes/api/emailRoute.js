@@ -19,9 +19,9 @@ router.post("/send", async (req, res) => {
       to: EmailAddress,
       subject: "Email from Sportscar app",
       text: `name: ${req.body.name} 
-      current-role:${req.body.role} 
-      sports-car" ${req.body.enthusiast} 
-      comment:${req.body.comment}`,
+      current-role: ${req.body.role} 
+      sports-car: ${req.body.enthusiast} 
+      comment: ${req.body.comment}`,
     },
     (err, data) => {
       if (err) {
