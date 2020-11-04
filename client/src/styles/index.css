@@ -1110,7 +1110,31 @@
 }
 
 .vehicleCard__btn {
-  margin: 0 0.2rem;
+  margin: 0.3rem;
+}
+
+.btn-group.btn-group-toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60%;
+}
+
+.btn-group.btn-group-toggle label {
+  min-width: 10rem;
+  -webkit-box-flex: 0.24;
+      -ms-flex: 0.24;
+          flex: 0.24;
+  border-radius: 0;
+  margin: 0.2rem;
 }
 
 @media only screen and (min-width: 1440px) {

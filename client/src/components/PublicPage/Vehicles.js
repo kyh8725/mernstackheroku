@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 
@@ -7,16 +7,33 @@ export default class Vehicles extends Component {
   state = {
     vehicles: [],
     API_URL: process.env.REACT_APP_API_URL,
+    type: "all",
   };
 
-  componentDidMount() {
-    axios.get(`${this.state.API_URL}/vehicles/allvehicles`).then((response) => {
-      this.setState({ vehicles: response.data });
-    });
+  async componentDidMount() {
+    await axios
+      .get(`${this.state.API_URL}/vehicles/allvehicles`)
+      .then((response) => {
+        this.setState({ vehicles: response.data });
+      });
   }
 
+  sortModel = (event) => {
+    if (event.target.value !== undefined) {
+      this.setState({ type: event.target.value });
+    }
+  };
+
   vehicleCard = () => {
-    const card = this.state.vehicles.map((vehicle) => {
+    let filteredCar = [];
+    if (this.state.type === "all") {
+      filteredCar = this.state.vehicles;
+    } else {
+      filteredCar = this.state.vehicles.filter(
+        (vehicle) => vehicle.type === this.state.type
+      );
+    }
+    const card = filteredCar.map((vehicle) => {
       return (
         <>
           <div className="vehicleCard">
@@ -58,12 +75,25 @@ export default class Vehicles extends Component {
         <section className="vehicles">
           <h3 className="vehicles__title">BUILD & PRICE</h3>
           <h2 className="vehicles__sub-title">Select your Model</h2>
-          <p>
-            sorting button will be implemented. by type (SUV, sedan ...) and by
-            maker
-          </p>
-          <p>More vehicles will be added later with different</p>
-          <p>add to garage and features button not working yet.</p>
+          <ToggleButtonGroup
+            type="radio"
+            name="options"
+            defaultValue="all"
+            onClick={this.sortModel}
+          >
+            <ToggleButton variant="secondary" value="all">
+              All
+            </ToggleButton>
+            <ToggleButton variant="secondary" value="sedan">
+              Sedan
+            </ToggleButton>
+            <ToggleButton variant="secondary" value="coupe">
+              Coupe
+            </ToggleButton>
+            <ToggleButton variant="secondary" value="suv">
+              SUV
+            </ToggleButton>
+          </ToggleButtonGroup>
           <div className="vehicles__models">{this.vehicleCard()}</div>
         </section>
       );
