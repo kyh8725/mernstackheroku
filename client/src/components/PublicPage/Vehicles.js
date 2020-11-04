@@ -62,7 +62,7 @@ export default class Vehicles extends Component {
             sorting button will be implemented. by type (SUV, sedan ...) and by
             maker
           </p>
-          <p>More vehicles will be added later with different types</p>
+          <p>More vehicles will be added later with different</p>
           <p>add to garage and features button not working yet.</p>
           <div className="vehicles__models">{this.vehicleCard()}</div>
         </section>
