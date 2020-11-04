@@ -15,8 +15,8 @@ router.get("/allvehicles", async (req, res) => {
 
 router.get("/get/:model", async (req, res) => {
   try {
-    const S2000 = await Vehicle.find({ model: req.params.model.toUpperCase() });
-    res.status(200).json(S2000);
+    const car = await Vehicle.find({ model: req.params.model.toUpperCase() });
+    res.status(200).json(car);
   } catch (err) {
     res.status(400).json(err);
   }

@@ -1059,6 +1059,11 @@
   margin-bottom: 2rem;
 }
 
+.vehicles__searchbyModel {
+  margin: 1rem 0;
+  width: 40%;
+}
+
 .vehicleCard {
   max-width: 23rem;
   max-height: 50rem;

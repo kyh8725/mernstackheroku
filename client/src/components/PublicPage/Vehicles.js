@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Button, ToggleButtonGroup, ToggleButton } from "react-bootstrap";
+import {
+  Button,
+  ToggleButtonGroup,
+  ToggleButton,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 
@@ -8,6 +14,7 @@ export default class Vehicles extends Component {
     vehicles: [],
     API_URL: process.env.REACT_APP_API_URL,
     type: "all",
+    model: "",
   };
 
   async componentDidMount() {
@@ -22,6 +29,14 @@ export default class Vehicles extends Component {
     if (event.target.value !== undefined) {
       this.setState({ type: event.target.value });
     }
+  };
+
+  getModel = (event) => {
+    event.preventDefault();
+    console.log(this.state.model);
+  };
+  setModel = (event) => {
+    this.setState({ model: event.target.value });
   };
 
   vehicleCard = () => {
@@ -94,6 +109,24 @@ export default class Vehicles extends Component {
               SUV
             </ToggleButton>
           </ToggleButtonGroup>
+          <form className="vehicles__searchbyModel" onSubmit={this.getModel}>
+            <InputGroup className="mb-3" onChange={this.setModel}>
+              <FormControl
+                placeholder="search by model"
+                aria-label="search by model"
+                aria-describedby="basic-addon2"
+              />
+              <InputGroup.Append>
+                <Button
+                  name="model-input"
+                  variant="outline-secondary"
+                  onClick={this.getModel}
+                >
+                  Search
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </form>
           <div className="vehicles__models">{this.vehicleCard()}</div>
         </section>
       );

@@ -1,5 +1,10 @@
 import React from "react";
+import GoogleMap from "./GoogleMap";
 
 export default function Dealers() {
-  return <div>Google map will be implemented.</div>;
+  return (
+    <div>
+      <GoogleMap />
+    </div>
+  );
 }

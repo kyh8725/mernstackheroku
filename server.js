@@ -77,22 +77,23 @@ passport.deserializeUser((user, cb) => {
   cb(null, user);
 });
 
-//nodemailer
+//email route
 const emailRoute = require("./routes/api/emailRoute");
 app.use("/email", emailRoute);
 
-//import router paths
+//passport route
 const routes = require("./routes/api/passportRoute");
 app.use("/passport", routes);
+
+// vehicle route
+const vehicleRoute = require("./routes/api/vehicleRoute");
+app.use("/vehicles", vehicleRoute);
 
 const PORT = process.env.PORT || 5000;
 
 //Static folder
 app.use("client/public", express.static(path.join(__dirname, "public")));
 
-// routesa
-const vehicleRoute = require("./routes/api/vehicleRoute");
-app.use("/vehicles", vehicleRoute);
 // MongoDB
 const mongoose = require("mongoose");
 const MONGO_URL = process.env.MONGODB_URL;
