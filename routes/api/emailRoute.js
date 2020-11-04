@@ -22,7 +22,7 @@ router.post("/send", async (req, res) => {
       sports-car" ${req.body.enthusiast} 
       comment:${req.body.comment}`,
     },
-    (err, data) => {
+    (err) => {
       if (err) {
         res.sendStatus(503).console.log("error", err);
       } else {

@@ -17,6 +17,7 @@ export default class Contacts extends Component {
       enthusiast: event.target.sportscar.value,
       comment: event.target.comment.value,
     };
+
     await axios
       .post(`${this.state.API_URL}/email/send`, JSON.stringify(data))
       .then((response) => {
