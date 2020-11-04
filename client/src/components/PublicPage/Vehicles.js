@@ -109,7 +109,7 @@ export default class Vehicles extends Component {
               SUV
             </ToggleButton>
           </ToggleButtonGroup>
-          <form className="vehicles__searchbyModel" onSubmit={this.getModel}>
+          {/* <form className="vehicles__searchbyModel" onSubmit={this.getModel}>
             <InputGroup className="mb-3" onChange={this.setModel}>
               <FormControl
                 placeholder="search by model"
@@ -126,7 +126,7 @@ export default class Vehicles extends Component {
                 </Button>
               </InputGroup.Append>
             </InputGroup>
-          </form>
+          </form> */}
           <div className="vehicles__models">{this.vehicleCard()}</div>
         </section>
       );
