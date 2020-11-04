@@ -3,7 +3,7 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-router.post("/send", async (req, res) => {
+router.post("/send", (req, res) => {
   const EmailAddress = process.env.EMAIL_ADDRESS;
   const transporter = nodemailer.createTransport({
     service: "hotmail",
@@ -12,21 +12,22 @@ router.post("/send", async (req, res) => {
       pass: process.env.EMAIL_PASS,
     },
   });
-  await transporter.sendMail(
+
+  transporter.sendMail(
     {
-      from: req.body.email,
+      from: JSON.parse(req.body.email),
       to: EmailAddress,
       subject: "Email from Sportscar app",
-      text: `name: ${req.body.name} 
-      current-role:${req.body.role} 
-      sports-car" ${req.body.enthusiast} 
+      text: `name: ${JSON.parse(JSON.stringify(req.body.name))} 
+      current-role:${JSON.stringify(JSON.parse(req.body.role))} 
+      sports-car" ${JSON.stringify(req.body.enthusiast)} 
       comment:${req.body.comment}`,
     },
     (err, data) => {
       if (err) {
-        console.log("error", err);
+        res.sendStatus(503).json(err);
       } else {
-        res.sendStatus(200).console.log("email sent");
+        res.sendStatus(200).json("email sent");
       }
     }
   );
