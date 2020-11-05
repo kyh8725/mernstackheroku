@@ -4,11 +4,17 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 router.post("/send", async (req, res) => {
-  console.log(req.body);
   const EmailAddress = process.env.EMAIL_ADDRESS;
+  const transporter = nodemailer.createTransport("SMTP", {
+    service: "hotmail",
+    auth: {
+      user: EmailAddress,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
   let mailOption = {
-    from: req.body.email,
+    from: `"${req.body.name}" <${req.body.email}>`,
     to: EmailAddress,
     subject: "Sportscar app",
     text: `Name: ${req.body.name}, 
@@ -17,13 +23,6 @@ router.post("/send", async (req, res) => {
            Comment: ${req.body.comment}`,
   };
 
-  const transporter = nodemailer.createTransport({
-    service: "hotmail",
-    auth: {
-      user: EmailAddress,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
   await transporter.sendMail(mailOption, (err, data) => {
     if (err) {
       res.sendStatus(503).console.log(err);
