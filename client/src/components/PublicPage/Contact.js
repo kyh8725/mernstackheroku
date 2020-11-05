@@ -17,9 +17,11 @@ export default class Contacts extends Component {
       enthusiast: event.target.sportscar.value,
       comment: event.target.comment.value,
     };
+    console.log(data);
+    console.log(this.state.API_URL);
 
     await axios
-      .post(`${this.state.API_URL}/email/send`, JSON.stringify(data))
+      .post(`${this.state.API_URL}/email/send`, data)
       .then((response) => {
         if (response.status === 200) {
           window.alert("Email Successfully sent");
@@ -59,10 +61,6 @@ export default class Contacts extends Component {
             all CRUD functionality is implemented yet. The cars in /vehicles are
             read from mongoDB atlas.
           </p>
-          <p className="contact__description2">
-            Sending email by the form below sends out undefined contents. I'm
-            looking for a solution.
-          </p>
 
           <form className="contact__form" onSubmit={this.sendEmail}>
             <label htmlFor="name" id="name-label">
@@ -92,9 +90,10 @@ export default class Contacts extends Component {
               </option>
 
               <option value="student">Student</option>
-              <option value="hr">HR Manager</option>
-              <option value="tech">Tech Manager</option>
-              <option value="learner">Full time learner</option>
+              <option value="HR Manager">HR Manager</option>
+              <option value="Tech Manager">Tech Manager</option>
+              <option value="Developer">Developer</option>
+              <option value="Full time learner">Full time learner</option>
               <option value="prefer">Prefer not to say</option>
             </select>
             <label htmlFor="radio">Are you a sports car enthusiast?</label>
@@ -115,7 +114,9 @@ export default class Contacts extends Component {
               placeholder="Enter your comment here..."
               id="comment"
             ></textarea>
+
             <p>By submitting, you will be sending emails to Daniel </p>
+
             {this.state.loading && (
               <button
                 className="btn btn-outline-dark btn-lg"

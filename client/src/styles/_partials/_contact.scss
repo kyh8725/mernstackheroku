@@ -21,6 +21,7 @@
   }
   label {
     font-weight: bold;
+    margin-top: 1rem;
   }
 }
 
@@ -29,14 +30,14 @@
 #dropdown,
 #comment {
   width: 60vw;
-  margin: 1rem 0;
+  margin: 0;
   height: 3rem;
 }
 #comment {
   min-height: 10rem;
 }
 .radio-div {
-  margin: 1rem 0;
+  margin: 0.2rem 0;
 }
 
 @include tablet {

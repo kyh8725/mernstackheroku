@@ -11,8 +11,6 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -76,7 +74,7 @@ passport.serializeUser((user, cb) => {
 passport.deserializeUser((user, cb) => {
   cb(null, user);
 });
-
+const PORT = process.env.PORT || 5000;
 //email route
 const emailRoute = require("./routes/api/emailRoute");
 app.use("/email", emailRoute);
@@ -92,8 +90,6 @@ app.use("/vehicles", vehicleRoute);
 //dealer route
 const dealerRoute = require("./routes/api/dealerRoute");
 app.use("/dealers", dealerRoute);
-
-const PORT = process.env.PORT || 5000;
 
 //Static folder
 app.use("client/public", express.static(path.join(__dirname, "public")));
