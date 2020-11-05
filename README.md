@@ -1,4 +1,4 @@
-# mernstackheroku
+# Sportscar
 
 
 This project was first started with intention in practicing OAuth and MongoDB. 
