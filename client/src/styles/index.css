@@ -1161,6 +1161,15 @@
           align-items: center;
 }
 
+.dealer__constr {
+  text-align: center;
+  color: red;
+}
+
+.dealer__map > div > div {
+  position: "relative" !important;
+}
+
 a {
   text-decoration: none;
 }

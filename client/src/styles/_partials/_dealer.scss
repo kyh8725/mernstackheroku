@@ -1,0 +1,10 @@
+.dealer {
+  &__constr {
+    text-align: center;
+    color: red;
+  }
+
+  &__map > div > div {
+    position: "relative" !important;
+  }
+}

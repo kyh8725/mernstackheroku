@@ -89,6 +89,10 @@ app.use("/passport", routes);
 const vehicleRoute = require("./routes/api/vehicleRoute");
 app.use("/vehicles", vehicleRoute);
 
+//dealer route
+const dealerRoute = require("./routes/api/dealerRoute");
+app.use("/dealers", dealerRoute);
+
 const PORT = process.env.PORT || 5000;
 
 //Static folder
