@@ -5,7 +5,7 @@ require("dotenv").config();
 
 router.post("/send", async (req, res) => {
   const EmailAddress = process.env.EMAIL_ADDRESS;
-  const transporter = nodemailer.createTransport("SMTP", {
+  const transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
       user: EmailAddress,
