@@ -14,10 +14,11 @@ router.post("/send", async (req, res) => {
   });
 
   let mailOption = {
-    from: `"${req.body.name}" <${req.body.email}>`,
+    from: EmailAddress,
     to: EmailAddress,
     subject: "Sportscar app",
     text: `Name: ${req.body.name}, 
+           Email:${req.body.email},
            Current-role: ${req.body.role}, 
            Love Sport cars?: ${req.body.enthusiast}, 
            Comment: ${req.body.comment}`,
