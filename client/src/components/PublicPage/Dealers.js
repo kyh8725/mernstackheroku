@@ -35,6 +35,11 @@ export default class Dealers extends Component {
       }
     });
   };
+
+  getActiveMarker = (id) => {
+    this.setState({ activeDealer: id });
+  };
+
   setDeactive = () => {
     this.setState({ activeDealer: "" });
   };
@@ -71,9 +76,22 @@ export default class Dealers extends Component {
           {this.state.activeDealer === dealer._id && (
             <div className="dealer__info" id={dealer._id}>
               <h5 className="dealer__info-address">{dealer.address}</h5>
-              <h5 className="dealer__info-tel">tel: {dealer.tel}</h5>
-              <h5 className="dealer__info-fax">fax: {dealer.fax}</h5>
-              <h5 className="dealer__info-web">{dealer.web}</h5>
+              <div>
+                <a href={`tel:${dealer.tel}}`}>
+                  <h5 className="dealer__info-tel">tel: {dealer.tel}</h5>
+                </a>
+                <a href={`fax:${dealer.fax}}`}>
+                  <h5 className="dealer__info-fax">fax: {dealer.fax}</h5>
+                </a>
+                <a
+                  href="https://kyh8725.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h5 className="dealer__info-web">{dealer.web}</h5>
+                </a>
+                <p>Hours: Mon - Sat 8:00 - 6:00</p>
+              </div>
             </div>
           )}
         </div>
@@ -84,15 +102,11 @@ export default class Dealers extends Component {
   render() {
     return (
       <>
-        <h3 style={{ textAlign: "center", margin: "1rem", color: "red" }}>
-          UNDER CONSTRUCTION
-        </h3>
-        <section className="dealer">
-          <div className="dealer__map">
-            <GoogleMap />
-          </div>
+        <h1 className="dealer__title">Find Dealers in Vancouver</h1>
+        <div className="dealer">
+          <GoogleMap getActiveMarker={this.getActiveMarker} />
           <div className="dealer__list">{this.dealerList()}</div>
-        </section>
+        </div>
       </>
     );
   }

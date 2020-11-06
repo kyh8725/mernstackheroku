@@ -532,6 +532,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: "Mulish";
+  font-style: italic;
 }
 
 .project-tile {
@@ -1052,13 +1054,13 @@
 }
 
 .vehicles__title {
-  font-family: "ACME";
+  font-family: "Mulish";
+  font-style: italic;
   margin: 2rem;
 }
 
 .vehicles__sub-title {
-  font-family: "Mulish";
-  font-style: italic;
+  font-family: "ACME";
   margin-bottom: 2rem;
 }
 
@@ -1168,44 +1170,30 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 1rem 1rem 3rem 1rem;
-}
-
-.dealer svg:hover {
-  cursor: pointer;
-}
-
-.dealer__map {
-  height: 30vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 2rem;
 }
 
+.dealer__title {
+  font-family: "Mulish";
+  font-style: italic;
+  text-align: center;
+  margin: 2rem;
+}
+
+.dealer div:first-child {
+  width: 100% !important;
+}
+
 .dealer__list {
+  margin: 2rem 1rem;
   font-family: "Raleway";
   line-height: 2.5rem;
+  max-width: 30rem;
 }
 
 .dealer__name {
@@ -1239,38 +1227,20 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
-  .dealer__map {
-    height: 25vw;
-    margin-right: 2rem;
+  .dealer div:first-child {
+    -webkit-box-flex: 0.7 !important;
+        -ms-flex: 0.7 !important;
+            flex: 0.7 !important;
   }
   .dealer__list {
+    -webkit-box-flex: 0.3;
+        -ms-flex: 0.3;
+            flex: 0.3;
+    margin-left: 2rem;
     min-width: 30rem;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .dealer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .dealer__map {
-    height: 20vw;
-    margin-right: 2rem;
   }
 }
 

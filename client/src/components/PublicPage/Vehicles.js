@@ -111,7 +111,7 @@ export default class Vehicles extends Component {
     } else {
       return (
         <section className="vehicles">
-          <h3 className="vehicles__title">BUILD & PRICE</h3>
+          <h1 className="vehicles__title">BUILD & PRICE</h1>
           <h2 className="vehicles__sub-title">Select your Model</h2>
           <ToggleButtonGroup
             type="radio"

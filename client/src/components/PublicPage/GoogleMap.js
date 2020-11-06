@@ -22,17 +22,26 @@ export class MapContainer extends Component {
   };
 
   async componentDidMount() {
+    console.log(this.props);
     await axios.get(`${this.state.API_URL}/dealers/getall`).then((response) => {
       this.setState({ markerPlaces: response.data });
     });
   }
 
-  onMarkerClick = (props, marker, e) =>
+  onMarkerClick = (props, marker, e) => {
+    axios
+      .get(`${this.state.API_URL}/dealers/getByName/${props.name}`)
+      .then((response) => {
+        this.setState({ selectedPlace: response.data[0] });
+      });
+
     this.setState({
-      selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true,
     });
+
+    this.props.getActiveMarker(props.id);
+  };
 
   onMapClicked = (props) => {
     if (this.state.showingInfoWindow) {
@@ -47,6 +56,7 @@ export class MapContainer extends Component {
     const markers = this.state.markerPlaces.map((place) => {
       return (
         <Marker
+          id={place._id}
           onClick={this.onMarkerClick}
           title={place.title}
           name={place.name}
@@ -61,8 +71,8 @@ export class MapContainer extends Component {
     position: "relative",
     width: "50vw",
     height: "30vw",
-    maxWidth: "45rem",
-    maxHeight: "20rem",
+    minWidth: "20rem",
+    minHeight: "20rem",
   };
 
   render() {
@@ -75,10 +85,6 @@ export class MapContainer extends Component {
           lat: this.state.mapCenter.lat,
           lng: this.state.mapCenter.lng,
         }}
-        center={{
-          lat: this.state.mapCenter.lat,
-          lng: this.state.mapCenter.lng,
-        }}
         zoom={12}
       >
         {this.placeMarkers()}
@@ -86,8 +92,24 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div>
-            <h1>{this.state.selectedPlace.name}</h1>
+          <div className="infoWindow">
+            <h4 className="infoWindow__title">
+              {this.state.selectedPlace.name}
+            </h4>
+            <p>{this.state.selectedPlace.address}</p>
+            <a href={`tel:${this.state.selectedPlace.tel}}`}>
+              <p>tel: {this.state.selectedPlace.tel}</p>
+            </a>
+            <a href={`fax:${this.state.selectedPlace.fax}}`}>
+              <p>fax: {this.state.selectedPlace.fax}</p>
+            </a>
+            <a
+              href="https://kyh8725.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>{this.state.selectedPlace.web}</p>
+            </a>
           </div>
         </InfoWindow>
       </Map>

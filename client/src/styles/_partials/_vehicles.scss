@@ -17,12 +17,12 @@
     align-items: center;
   }
   &__title {
-    font-family: "ACME";
+    font-family: "Mulish";
+    font-style: italic;
     margin: 2rem;
   }
   &__sub-title {
-    font-family: "Mulish";
-    font-style: italic;
+    font-family: "ACME";
     margin-bottom: 2rem;
   }
   &__searchbyModel {
