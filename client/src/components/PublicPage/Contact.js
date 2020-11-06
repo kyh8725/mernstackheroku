@@ -49,14 +49,14 @@ export default class Contacts extends Component {
           <p className="contact__description2">
             <strong>
               Tech Used: HTML5, CSS3, Sass, Bootstrap, JavaScript, React,
-              Express, Node, OAuth, MongoDB Atlas, Heroku.
+              Express, Node, OAuth, MongoDB Atlas, Google maps Heroku.
             </strong>
           </p>
           <p className="contact__description2">
             New techs I encountered to use in this app are OAuth (github,
-            google+ strategy), MongoDB (Atlas, mongoose), and nodeMailer. Not
-            all CRUD functionality is implemented yet. The cars in /vehicles are
-            read from mongoDB atlas.
+            google+ strategy), MongoDB (Atlas, mongoose), Google-maps, and
+            nodeMailer. Not all CRUD functionality is implemented yet. The data
+            in /vehicles and /dealers are read from mongoDB atlas.
           </p>
 
           <form className="contact__form" onSubmit={this.sendEmail}>
