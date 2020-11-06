@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 .header a,
 .header img {
   margin: auto 1rem;
@@ -1203,7 +1204,7 @@
 }
 
 .dealer__list {
-  font-family: "Dosis";
+  font-family: "Raleway";
   line-height: 2.5rem;
 }
 
@@ -1254,7 +1255,7 @@
     margin-right: 2rem;
   }
   .dealer__list {
-    min-width: 24rem;
+    min-width: 30rem;
   }
 }
 

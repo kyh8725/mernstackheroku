@@ -3,8 +3,8 @@ import {
   Button,
   ToggleButtonGroup,
   ToggleButton,
-  InputGroup,
-  FormControl,
+  Popover,
+  OverlayTrigger,
 } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
@@ -15,6 +15,7 @@ export default class Vehicles extends Component {
     API_URL: process.env.REACT_APP_API_URL,
     type: "all",
     model: "",
+    popOver: [],
   };
 
   async componentDidMount() {
@@ -65,9 +66,31 @@ export default class Vehicles extends Component {
             <h5 className="vehicleCard__price">
               ${vehicle.price.toLocaleString()}
             </h5>
-            <Button className="vehicleCard__btn" variant="outline-primary">
-              Features
-            </Button>
+            {
+              <OverlayTrigger
+                trigger="click"
+                placement="right"
+                key={vehicle._id}
+                overlay={
+                  <Popover id={vehicle._id}>
+                    <Popover.Title as="h1">
+                      {vehicle.year} {vehicle.make} {vehicle.model}
+                    </Popover.Title>
+                    <Popover.Content>
+                      <strong>
+                        <p>HorsePower (hp): {vehicle.hp} </p>
+                        <p>Torque (lb-ft): {vehicle.tq} </p>
+                        <p>Transmission: {vehicle.transmission}</p>{" "}
+                      </strong>
+                    </Popover.Content>
+                  </Popover>
+                }
+              >
+                <Button className="vehicleCard__btn" variant="outline-primary">
+                  Specs
+                </Button>
+              </OverlayTrigger>
+            }
             <Button className="vehicleCard__btn" variant="outline-primary">
               Add to Garage
             </Button>
@@ -109,24 +132,6 @@ export default class Vehicles extends Component {
               SUV
             </ToggleButton>
           </ToggleButtonGroup>
-          {/* <form className="vehicles__searchbyModel" onSubmit={this.getModel}>
-            <InputGroup className="mb-3" onChange={this.setModel}>
-              <FormControl
-                placeholder="search by model"
-                aria-label="search by model"
-                aria-describedby="basic-addon2"
-              />
-              <InputGroup.Append>
-                <Button
-                  name="model-input"
-                  variant="outline-secondary"
-                  onClick={this.getModel}
-                >
-                  Search
-                </Button>
-              </InputGroup.Append>
-            </InputGroup>
-          </form> */}
           <div className="vehicles__models">{this.vehicleCard()}</div>
         </section>
       );
