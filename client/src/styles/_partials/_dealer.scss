@@ -7,7 +7,7 @@
     font-family: "Mulish";
     font-style: italic;
     text-align: center;
-    margin: 2rem;
+    margin: 4rem;
   }
 
   div:first-child {
@@ -36,6 +36,19 @@
       color: rgba(31, 149, 245, 0.918);
     }
   }
+}
+.infoWindow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  &__desc {
+    margin-left: 2rem;
+    width: 50%;
+  }
+}
+.gm-style-iw.gm-style-iw-c {
+  max-width: 35rem !important;
 }
 
 @include tablet {

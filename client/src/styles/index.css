@@ -1182,7 +1182,7 @@
   font-family: "Mulish";
   font-style: italic;
   text-align: center;
-  margin: 2rem;
+  margin: 4rem;
 }
 
 .dealer div:first-child {
@@ -1220,6 +1220,29 @@
 
 .dealer__info-tel, .dealer__info-fax {
   color: rgba(31, 149, 245, 0.918);
+}
+
+.infoWindow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.infoWindow__desc {
+  margin-left: 2rem;
+  width: 50%;
+}
+
+.gm-style-iw.gm-style-iw-c {
+  max-width: 35rem !important;
 }
 
 @media only screen and (min-width: 993px) {

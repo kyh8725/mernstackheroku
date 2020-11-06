@@ -92,24 +92,31 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
+          <h4 className="infoWindow__title">{this.state.selectedPlace.name}</h4>
           <div className="infoWindow">
-            <h4 className="infoWindow__title">
-              {this.state.selectedPlace.name}
-            </h4>
-            <p>{this.state.selectedPlace.address}</p>
-            <a href={`tel:${this.state.selectedPlace.tel}}`}>
-              <p>tel: {this.state.selectedPlace.tel}</p>
-            </a>
-            <a href={`fax:${this.state.selectedPlace.fax}}`}>
-              <p>fax: {this.state.selectedPlace.fax}</p>
-            </a>
-            <a
-              href="https://kyh8725.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p>{this.state.selectedPlace.web}</p>
-            </a>
+            <div>
+              <img
+                src="https://i.gaw.to/content/photos/31/09/310951_Grand_opening_of_Lamborghini_Uptown_in_Vaughan.jpg"
+                style={{ width: "10rem", height: "10rem" }}
+                alt="dealer img"
+              />
+            </div>
+            <div className="infoWindow__desc">
+              <p>{this.state.selectedPlace.address}</p>
+              <a href={`tel:${this.state.selectedPlace.tel}}`}>
+                <p>tel: {this.state.selectedPlace.tel}</p>
+              </a>
+              <a href={`fax:${this.state.selectedPlace.fax}}`}>
+                <p>fax: {this.state.selectedPlace.fax}</p>
+              </a>
+              <a
+                href="https://kyh8725.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p>{this.state.selectedPlace.web}</p>
+              </a>
+            </div>
           </div>
         </InfoWindow>
       </Map>
