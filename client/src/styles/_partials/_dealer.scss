@@ -1,10 +1,69 @@
 .dealer {
-  &__constr {
-    text-align: center;
-    color: red;
+  svg:hover {
+    cursor: pointer;
   }
 
-  &__map > div > div {
-    position: "relative" !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 1rem 3rem 1rem;
+
+  &__map {
+    height: 30vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  &__list {
+    font-family: "Dosis";
+    line-height: 2.5rem;
+  }
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__info {
+    text-align: end;
+    margin: 1rem 2rem;
+    color: grey;
+    &-address {
+      color: black;
+    }
+    &-tel,
+    &-fax {
+      color: rgba(31, 149, 245, 0.918);
+    }
+  }
+}
+
+@include tablet {
+  .dealer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &__map {
+      height: 25vw;
+      margin-right: 2rem;
+    }
+    &__list {
+      min-width: 24rem;
+    }
+  }
+}
+
+@include desk {
+  .dealer {
+    display: flex;
+    justify-content: center;
+    &__map {
+      height: 20vw;
+      margin-right: 2rem;
+    }
   }
 }

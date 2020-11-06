@@ -1,8 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faMap } from "@fortawesome/free-regular-svg-icons";
-
+import { faMapMarkerAlt, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 export default function Header() {
   return (
     <>
@@ -33,11 +32,11 @@ export default function Header() {
                 <strong>VEHICLES</strong>
               </Nav.Link>
               <Nav.Link href="/dealers">
-                <FontAwesomeIcon icon={faMap} color="grey" size="lg" />{" "}
+                <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
                 <strong> Dealers </strong>
               </Nav.Link>
               <Nav.Link href="/protected">
-                <FontAwesomeIcon icon={faUser} color="grey" size="lg" />{" "}
+                <FontAwesomeIcon icon={faUserAlt} size="lg" />
                 <strong> My Account </strong>
               </Nav.Link>
             </Nav>

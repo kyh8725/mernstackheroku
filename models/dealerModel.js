@@ -14,11 +14,23 @@ const DealerSchema = new Schema({
     type: String,
     required: true,
   },
-  title: {
+  address: {
     type: String,
     required: true,
   },
   actual: {
+    type: String,
+    required: true,
+  },
+  tel: {
+    type: String,
+    required: true,
+  },
+  fax: {
+    type: String,
+    required: true,
+  },
+  web: {
     type: String,
     required: true,
   },

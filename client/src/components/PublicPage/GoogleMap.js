@@ -44,7 +44,6 @@ export class MapContainer extends Component {
   };
 
   placeMarkers = () => {
-    console.log(this.state.markerPlaces);
     const markers = this.state.markerPlaces.map((place) => {
       return (
         <Marker
@@ -58,9 +57,18 @@ export class MapContainer extends Component {
     return markers;
   };
 
+  containerStyle = {
+    position: "relative",
+    width: "50vw",
+    height: "30vw",
+    maxWidth: "45rem",
+    maxHeight: "20rem",
+  };
+
   render() {
     return (
       <Map
+        containerStyle={this.containerStyle}
         google={this.props.google}
         onClick={this.onMapClicked}
         initialCenter={{
