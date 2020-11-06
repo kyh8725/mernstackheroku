@@ -1,7 +1,6 @@
 # Sportscar
 
-
-This project was first started with intention in practicing OAuth and MongoDB. 
+This project was first started with intention in practicing OAuth and MongoDB.
 
 It was expanded to a sports car dealership-like web site because I like sports cars.
 
@@ -13,7 +12,7 @@ I'm tryting to continuosly build new pages with new tech and functionality that 
 
 Tech Used: HTML5, CSS3, Sass, Bootstrap, JavaScript, React, Express, Node, OAuth, MongoDB Atlas, Heroku.
 
-New techs I encountered to use in this app are OAuth - passport(github, google+ strategy), MongoDB (Atlas, mongoose), and nodeMailer.
+New techs I encountered to use in this app are OAuth - passport(github, google+ strategy), MongoDB (Atlas, mongoose), Google-maps and nodeMailer.
 
 Not all CRUD functionality is implemented yet. The cars in /vehicles are read from mongoDB atlas.
 
@@ -21,8 +20,4 @@ To do list for now:
 
 finish up the /dealer page - google-map
 
-add to garage button function in /vehicles - which adds vehicles to user 
-set up the MongoDB and back end apis for users and vehicles
-
-later I can turn this project into a car forum or blogs ... etc
-
+add to garage button function in /vehicles
