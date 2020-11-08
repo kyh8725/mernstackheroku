@@ -37,19 +37,35 @@
     }
   }
 }
+
 .infoWindow {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
-  z-index: 947;
+  &__img {
+    flex: 0.3;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   &__desc {
-    margin-left: 2rem;
-    width: 50%;
+    margin-left: 1rem;
+    flex: 0.7;
   }
 }
 .gm-style-iw.gm-style-iw-c {
   max-width: 35rem !important;
+}
+.gm-style-mtc {
+  display: none;
+}
+
+@media only screen and (min-width: 700px) {
+  .gm-style-mtc {
+    display: block;
+  }
 }
 
 @include tablet {

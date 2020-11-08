@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
+  margin: 1rem;
   flex: 1;
 
   &__models {
@@ -20,10 +20,12 @@
     font-family: "Mulish";
     font-style: italic;
     margin: 2rem;
+    font-size: 1.5rem;
   }
   &__sub-title {
-    font-family: "ACME";
+    font-family: "Mulish";
     margin-bottom: 2rem;
+    font-size: 1.2rem;
   }
   &__searchbyModel {
     margin: 1rem 0;
@@ -34,8 +36,8 @@
 .vehicleCard {
   max-width: 23rem;
   max-height: 50rem;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.5rem;
+  margin: 1rem 0;
   text-align: center;
   outline: 0.1rem solid grey;
   border: 0.3rem solid transparent;
@@ -50,13 +52,15 @@
   }
   &__title {
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   &__msrp {
+    font-size: 1rem;
     color: grey;
   }
+
   &__imgD {
-    height: 15rem;
+    height: 30%;
     max-height: 30rem;
     img {
       width: 100%;
@@ -75,7 +79,8 @@
     }
   }
   &__btn {
-    margin: 0.3rem;
+    margin: 0.1rem;
+    font-size: 0.8rem;
   }
 }
 .btn-group.btn-group-toggle {
@@ -89,6 +94,36 @@
     flex: 0.24;
     border-radius: 0;
     margin: 0.2rem;
+  }
+}
+
+@media only screen and (min-width: 440px) {
+  .vehicles {
+    margin: 2rem;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+    &__sub-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .vehicleCard {
+    padding: 1rem;
+    margin: 1rem;
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__imgD {
+      height: 15rem;
+    }
+
+    &__btn {
+      margin: 0.3rem;
+      font-size: 1rem;
+    }
   }
 }
 

@@ -456,6 +456,7 @@
 }
 
 .footer__top-first, .footer__top-second, .footer__top-third {
+  cursor: pointer;
   text-align: center;
   -webkit-box-flex: 0.33;
       -ms-flex: 0.33;
@@ -557,6 +558,9 @@
   }
   .footer__top span {
     display: none !important;
+  }
+  .footer__top-first, .footer__top-second, .footer__top-third {
+    cursor: context-menu;
   }
   .footer__top-first-title, .footer__top-second-title, .footer__top-third-title {
     border-bottom: 2px solid #303841;
@@ -1103,7 +1107,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 2rem;
+  margin: 1rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -1127,11 +1131,13 @@
   font-family: "Mulish";
   font-style: italic;
   margin: 2rem;
+  font-size: 1.5rem;
 }
 
 .vehicles__sub-title {
-  font-family: "ACME";
+  font-family: "Mulish";
   margin-bottom: 2rem;
+  font-size: 1.2rem;
 }
 
 .vehicles__searchbyModel {
@@ -1142,8 +1148,8 @@
 .vehicleCard {
   max-width: 23rem;
   max-height: 50rem;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.5rem;
+  margin: 1rem 0;
   text-align: center;
   outline: 0.1rem solid grey;
   border: 0.3rem solid transparent;
@@ -1161,15 +1167,16 @@
 
 .vehicleCard__title {
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .vehicleCard__msrp {
+  font-size: 1rem;
   color: grey;
 }
 
 .vehicleCard__imgD {
-  height: 15rem;
+  height: 30%;
   max-height: 30rem;
 }
 
@@ -1190,7 +1197,8 @@
 }
 
 .vehicleCard__btn {
-  margin: 0.3rem;
+  margin: 0.1rem;
+  font-size: 0.8rem;
 }
 
 .btn-group.btn-group-toggle {
@@ -1215,6 +1223,32 @@
           flex: 0.24;
   border-radius: 0;
   margin: 0.2rem;
+}
+
+@media only screen and (min-width: 440px) {
+  .vehicles {
+    margin: 2rem;
+  }
+  .vehicles__title {
+    font-size: 1.8rem;
+  }
+  .vehicles__sub-title {
+    font-size: 1.5rem;
+  }
+  .vehicleCard {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .vehicleCard__title {
+    font-size: 1.5rem;
+  }
+  .vehicleCard__imgD {
+    height: 15rem;
+  }
+  .vehicleCard__btn {
+    margin: 0.3rem;
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -1296,24 +1330,46 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 947;
+}
+
+.infoWindow__img {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+}
+
+.infoWindow__img img {
+  width: 100%;
+  height: 100%;
 }
 
 .infoWindow__desc {
-  margin-left: 2rem;
-  width: 50%;
+  margin-left: 1rem;
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
 }
 
 .gm-style-iw.gm-style-iw-c {
   max-width: 35rem !important;
+}
+
+.gm-style-mtc {
+  display: none;
+}
+
+@media only screen and (min-width: 700px) {
+  .gm-style-mtc {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 993px) {

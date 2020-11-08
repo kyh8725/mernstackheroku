@@ -120,7 +120,7 @@ export default class Vehicles extends Component {
             onClick={this.sortModel}
           >
             <ToggleButton variant="secondary" value="all">
-              All
+              ALL
             </ToggleButton>
             <ToggleButton variant="secondary" value="sedan">
               Sedan

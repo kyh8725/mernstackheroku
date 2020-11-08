@@ -94,10 +94,15 @@ export class MapContainer extends Component {
         >
           <h4 className="infoWindow__title">{this.state.selectedPlace.name}</h4>
           <div className="infoWindow">
-            <div>
+            <div className="infoWindow__img">
               <img
                 src="https://i.gaw.to/content/photos/31/09/310951_Grand_opening_of_Lamborghini_Uptown_in_Vaughan.jpg"
-                style={{ width: "10rem", height: "10rem" }}
+                style={{
+                  width: "50vw",
+                  height: "50vw",
+                  maxWidth: "10rem",
+                  maxHeight: "10rem",
+                }}
                 alt="dealer img"
               />
             </div>
