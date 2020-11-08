@@ -7,12 +7,16 @@
     color: #303841;
     background-color: #f1f1f1;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
+    h5 span {
+      margin-left: 1rem;
+    }
     ul,
     li {
       list-style-type: none;
-      text-align: left;
+      text-align: center;
       padding: 0;
       font-size: 1.2rem;
     }
@@ -24,29 +28,43 @@
         color: rgba(0, 140, 255, 0.781);
       }
     }
+
     &-first,
     &-second,
     &-third {
+      text-align: center;
       flex: 0.33;
-      margin: 1rem;
+      margin: 2rem 0;
       &-title {
         font-weight: bolder;
-        border-bottom: 2px solid #303841;
       }
+    }
+    &-second,
+    &-third {
+      margin-top: 0;
     }
   }
 
   &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
     a {
       color: white;
     }
     ul {
       list-style-type: none;
     }
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3rem;
+    &-left {
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+    }
+    &-right {
+      display: flex;
+      flex-wrap: nowrap;
+    }
   }
   .fa {
     padding: 20px;
@@ -54,13 +72,54 @@
     width: 2.5rem;
     text-align: center;
     text-decoration: none;
-    margin: 0.1rem 0.5rem;
+    margin: 0;
     border-radius: 50%;
   }
   .fa:hover {
     color: rgb(107, 107, 107);
     transition: 0.4s ease;
     transform: translateY(0.2rem);
+  }
+}
+
+@media only screen and (min-width: 440px) {
+  .footer {
+    &__bottom {
+      &-left {
+        font-size: 1rem;
+        flex-direction: row;
+      }
+    }
+    .fa {
+      margin: 0.1rem 0.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .footer {
+    &__top {
+      display: flex;
+      flex-direction: row;
+      ul {
+        display: block !important;
+      }
+      span {
+        display: none !important;
+      }
+
+      &-first,
+      &-second,
+      &-third {
+        &-title {
+          border-bottom: 2px solid #303841;
+        }
+      }
+      &-second,
+      &-third {
+        margin-top: 2rem;
+      }
+    }
   }
 }
 
@@ -75,6 +134,7 @@
 @include desk {
   .footer {
     &__top {
+      flex-wrap: nowrap;
       padding: 0 10rem;
     }
   }

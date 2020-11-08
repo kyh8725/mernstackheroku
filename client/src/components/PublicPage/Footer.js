@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function () {
+  const [vehicles, setVehicles] = useState(false);
+  const [shopping, setShopping] = useState(false);
+  const [about, setAbout] = useState(false);
+
   return (
     <footer className="footer">
       <div className="footer__top">
         <div className="footer__top-first">
-          <h5 className="footer__top-first-title"> Vehicles</h5>
-          <ul>
+          <h5
+            className="footer__top-first-title"
+            onClick={() => setVehicles(!vehicles)}
+          >
+            Vehicles
+            <span>
+              <FontAwesomeIcon
+                icon={vehicles ? faAngleUp : faAngleDown}
+                size="lg"
+              />
+            </span>
+          </h5>
+
+          <ul
+            className="collapse"
+            style={{ display: vehicles ? "block" : "none" }}
+          >
             <li>
-              <a href="/vehicles">All Vehicles</a>
+              <a href="/vehicles">All Vehicles </a>
             </li>
             <li>
               <a
@@ -64,24 +85,8 @@ export default function () {
                 BMW
               </a>
             </li>
-            <li>
-              <a
-                href="https://www.audi.ca/ca/web/en.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Audi
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.acura.ca/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Acura
-              </a>
-            </li>
+            <li></li>
+            <li></li>
             <li>
               <a
                 href="https://www.nissan.ca/"
@@ -103,8 +108,23 @@ export default function () {
           </ul>
         </div>
         <div className="footer__top-second">
-          <h5 className="footer__top-second-title"> Shopping Tools</h5>
-          <ul>
+          <h5
+            className="footer__top-second-title"
+            onClick={() => setShopping(!shopping)}
+          >
+            Shopping Tools
+            <span>
+              <FontAwesomeIcon
+                icon={shopping ? faAngleUp : faAngleDown}
+                size="lg"
+              />
+            </span>
+          </h5>
+
+          <ul
+            className="collapse"
+            style={{ display: shopping ? "block" : "none" }}
+          >
             <li>
               <a href="/vehicles">Special Offers</a>
             </li>
@@ -123,8 +143,22 @@ export default function () {
           </ul>
         </div>
         <div className="footer__top-third">
-          <h5 className="footer__top-third-title">About</h5>
-          <ul>
+          <h5
+            className="footer__top-third-title"
+            onClick={() => setAbout(!about)}
+          >
+            About
+            <span>
+              <FontAwesomeIcon
+                icon={about ? faAngleUp : faAngleDown}
+                size="lg"
+              />
+            </span>
+          </h5>
+          <ul
+            className="collapse"
+            style={{ display: about ? "block" : "none" }}
+          >
             <li>
               <a href="/contact">Contact Us</a>
             </li>
@@ -133,9 +167,6 @@ export default function () {
             </li>
             <li>
               <a href="/contact">Career</a>
-            </li>
-            <li>
-              <a href="/contact">FAQ</a>
             </li>
           </ul>
         </div>
@@ -148,7 +179,7 @@ export default function () {
             target="/blank"
             rel="noopener noreferrer"
           >
-            Daniel Kim
+            &nbsp; Daniel Kim
           </a>
         </div>
         <div className="footer__bottom-right">
