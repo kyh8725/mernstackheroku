@@ -75,6 +75,7 @@ passport.deserializeUser((user, cb) => {
   cb(null, user);
 });
 const PORT = process.env.PORT || 5000;
+
 //email route
 const emailRoute = require("./routes/api/emailRoute");
 app.use("/email", emailRoute);
@@ -90,6 +91,9 @@ app.use("/vehicles", vehicleRoute);
 //dealer route
 const dealerRoute = require("./routes/api/dealerRoute");
 app.use("/dealers", dealerRoute);
+//user route
+const userRoute = require("./routes/api/userRoute");
+app.use("/users", userRoute);
 
 //Static folder
 app.use("client/public", express.static(path.join(__dirname, "public")));

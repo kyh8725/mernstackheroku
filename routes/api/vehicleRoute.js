@@ -29,7 +29,15 @@ router.post("/update/:model", async (req, res) => {
     const updatedVehicle = await Vehicle.findOneAndUpdate(
       { model: req.params.model.toUpperCase() },
       {
+        make: req.body.make,
+        model: req.body.model,
+        year: req.body.year,
+        transmission: req.body.transmission,
+        color: req.body.color,
+        type: req.body.type,
+        price: req.body.price,
         img: req.body.img,
+        owners: req.body.owners,
       },
       { new: true }
     );
@@ -60,6 +68,7 @@ router.post("/newvehicles", async (req, res) => {
     type: req.body.type,
     price: req.body.price,
     img: req.body.img,
+    owners: req.body.owners,
   });
   try {
     const savedVehicle = await vehicle.save();

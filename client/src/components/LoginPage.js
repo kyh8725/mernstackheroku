@@ -7,17 +7,11 @@ class Login extends Component {
   };
 
   login = () => {
-    // Change location to /login server route while sending a redirect url
-    // If user is coming from a page different than /, get the page they
-    // are coming from, otherwise redirect to / after login
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const url = `${window.location.protocol}//${window.location.host}${from.pathname}`;
     window.location = `${this.state.API_URL}/passport/login/?from=${url}`;
   };
   loginGoogle = () => {
-    // Change location to /login server route while sending a redirect url
-    // If user is coming from a page different than /, get the page they
-    // are coming from, otherwise redirect to / after login
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const url = `${window.location.protocol}//${window.location.host}${from.pathname}`;
     window.location = `${this.state.API_URL}/passport/google/?from=${url}`;

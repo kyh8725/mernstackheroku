@@ -6,50 +6,43 @@ const VehicleSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   model: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   year: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   transmission: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   color: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   type: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   price: {
     type: Number,
     required: true,
     trim: true,
-    lowercase: true,
   },
   img: {
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
+  owners: [],
 });
 
 module.exports = mongoose.model("Vehicle", VehicleSchema);
