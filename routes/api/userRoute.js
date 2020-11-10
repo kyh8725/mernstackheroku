@@ -12,7 +12,7 @@ router.get("/allUsers", async (req, res) => {
 });
 
 router.post("/newUser", async (req, res) => {
-  const newUser = new Vehicle({
+  const newUser = new User({
     userName: req.body.userName,
   });
   try {
