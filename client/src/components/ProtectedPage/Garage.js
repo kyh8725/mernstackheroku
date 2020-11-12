@@ -7,6 +7,24 @@ export default function () {
   const [shopping, setShopping] = useState(false);
   const [finance, setFinance] = useState(false);
 
+  const renderCars = () => {
+    return (
+      <>
+        <div className="garage__car-card">
+          <div className="garage__car-card-top">
+            <h6>Your Vehicle</h6>
+            <h3>year name type</h3>
+            <p>your VIN</p>
+            <p>asdfasdfasdfsadf</p>
+          </div>
+          <div className="garage__car-card-bottom">
+            <img src="/pic1.jpg" alt="" />
+          </div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <>
       <div className="garage">
@@ -127,12 +145,16 @@ export default function () {
               </ul>
             </div>
           </div>
-          <div className="garage__app-bottom"></div>
+          <div className="garage__app-bottom">
+            <div className="garage__app-bottom-title">
+              <h2 className="garage__title">
+                Kyh8725's Dashboard
+                {/* {this.props.user.username || this.props.user.displayName} */}
+              </h2>
+            </div>
+            <div className="garage__app-bottom-car">{renderCars()}</div>
+          </div>
         </div>
-        <h2 className="garage__title">
-          Kyh8725's Dashboard
-          {/* {this.props.user.username || this.props.user.displayName} */}
-        </h2>
       </div>
     </>
   );
