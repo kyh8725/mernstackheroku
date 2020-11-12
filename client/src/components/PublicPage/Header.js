@@ -1,7 +1,12 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapMarkerAlt,
+  faUserAlt,
+  faCar,
+  faHome,
+} from "@fortawesome/free-solid-svg-icons";
 export default function Header() {
   return (
     <>
@@ -26,18 +31,28 @@ export default function Header() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/home">
-                <strong>HOME</strong>
+                <FontAwesomeIcon icon={faHome} size="lg" />
+                <strong>
+                  <span>HOME </span>
+                </strong>
               </Nav.Link>
               <Nav.Link href="/vehicles">
-                <strong>VEHICLES</strong>
+                <FontAwesomeIcon icon={faCar} size="lg" />
+                <strong>
+                  <span>MODELS </span>
+                </strong>
               </Nav.Link>
               <Nav.Link href="/dealers">
                 <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
-                <strong> Dealers </strong>
+                <strong>
+                  <span> DEALERS</span>
+                </strong>
               </Nav.Link>
               <Nav.Link href="/protected">
                 <FontAwesomeIcon icon={faUserAlt} size="lg" />
-                <strong> My Account </strong>
+                <strong>
+                  <span>MY ACCOUNT </span>
+                </strong>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

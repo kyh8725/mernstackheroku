@@ -18,7 +18,7 @@ export default class Dealers extends Component {
   async componentDidMount() {
     let activeState = [];
     await axios.get(`${this.state.API_URL}/dealers/getall`).then((response) => {
-      response.data.map((dealer) => {
+      const active = response.data.map((dealer) => {
         let tempState = {};
         tempState.id = dealer._id;
         tempState.active = false;

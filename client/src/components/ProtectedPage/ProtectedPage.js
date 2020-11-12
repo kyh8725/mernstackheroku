@@ -17,7 +17,7 @@ export default class ProtectedPage extends Component {
 
   createUser = () => {
     const newUserName = this.props.user.username || this.props.user.displayName;
-    if (!this.state.users.includes(this.props.user.userName)) {
+    try {
       axios
         .post(`${this.state.API_URL}/users/newUser`, {
           userName: newUserName,
@@ -25,8 +25,8 @@ export default class ProtectedPage extends Component {
         .then((response) => {
           console.log(`${newUserName}, created"`);
         });
-    } else {
-      console.log("user already exists");
+    } catch (err) {
+      console.log(err);
     }
   };
 

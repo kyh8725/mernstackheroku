@@ -49,8 +49,7 @@ class AuthButton extends Component {
           />
           Welcome, {this.state.user.username || this.state.user.displayName}!
           <Button variant="outline-danger" onClick={this.signOut}>
-            {" "}
-            Sign out{" "}
+            Sign out
           </Button>
         </p>
       )

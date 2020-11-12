@@ -1,3 +1,39 @@
 .garage {
   text-align: center;
+
+  &__title {
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  &__app {
+    &-top {
+      margin: 1.5rem 2rem;
+      &-menu {
+        &-title {
+          border-bottom: 1px solid rgb(219, 219, 219);
+          padding-bottom: 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  &__collapse {
+    list-style: none;
+    padding: 0;
+    li {
+      border-bottom: 1px solid rgb(219, 219, 219);
+      padding: 1rem 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+  }
 }

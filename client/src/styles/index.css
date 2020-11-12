@@ -5,6 +5,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+.header span {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
 .header a,
 .header img {
   margin: auto 1rem;
@@ -1004,6 +1009,52 @@
   text-align: center;
 }
 
+.garage__title {
+  font-weight: lighter;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem;
+}
+
+.garage__app-top {
+  margin: 1.5rem 2rem;
+}
+
+.garage__app-top-menu-title {
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+}
+
+.garage__collapse {
+  list-style: none;
+  padding: 0;
+}
+
+.garage__collapse li {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 1rem 0;
+}
+
+.garage__collapse a {
+  text-decoration: none;
+  color: grey;
+}
+
 .contact {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1125,6 +1176,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 1rem;
 }
 
 .vehicles__title {
