@@ -34,13 +34,11 @@ export default class ProtectedPage extends Component {
   render() {
     return (
       <>
-        <section className="protected">
-          <AuthButton />
-          <p>
-            <strong>This page is under construction </strong>
-          </p>
-          <Garage userName={this.state.userName} />
-        </section>
+        <AuthButton />
+        <p>
+          <strong>This page is under construction </strong>
+        </p>
+        <Garage userName={this.state.userName} />
       </>
     );
   }

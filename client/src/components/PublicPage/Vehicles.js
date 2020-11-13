@@ -70,8 +70,7 @@ export default class Vehicles extends Component {
               owners: newOwners,
             })
             .then((response) => {
-              console.log(newOwners);
-              console.log(response.data);
+              window.alert("vehicle successfully added to your garage");
             });
         });
     } else {

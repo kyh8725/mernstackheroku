@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "react-bootstrap";
 import axios from "axios";
 export default class garage extends Component {
   state = {
@@ -48,6 +49,20 @@ export default class garage extends Component {
             </div>
             <div className="garage__car-card-bottom">
               <img src={car.img} alt="" />
+            </div>
+            <div className="garage__car-card-button">
+              <Button
+                className="garage__car-card-update"
+                variant="outline-primary"
+              >
+                update
+              </Button>
+              <Button
+                className="garage__car-card-delete"
+                variant="outline-danger"
+              >
+                delete
+              </Button>
             </div>
           </div>
         </>
