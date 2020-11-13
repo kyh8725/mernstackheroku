@@ -51,9 +51,10 @@
     &-yourcar {
       font-weight: lighter;
     }
-    &-update,
-    &-delete {
-      margin: 1rem;
+    &-button {
+      button {
+        margin: 1rem;
+      }
     }
 
     &-bottom {
