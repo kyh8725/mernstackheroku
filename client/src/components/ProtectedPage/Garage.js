@@ -10,6 +10,7 @@ export default class garage extends Component {
     shopping: false,
     finance: false,
     API_URL: process.env.REACT_APP_API_URL,
+    refresh: false,
   };
 
   async componentDidMount() {
@@ -18,8 +19,6 @@ export default class garage extends Component {
       .then((response) => {
         this.setState({ vehicles: response.data });
       });
-    console.log(this.props);
-    console.log(this.state.vehicles);
   }
 
   setOwners = (opposite) => {
@@ -48,6 +47,7 @@ export default class garage extends Component {
             owners: newOwners,
           })
           .then((response) => {
+            this.setState({ refresh: !this.state.refresh });
             window.alert("vehicle successfully removed from your garage");
           });
       });
