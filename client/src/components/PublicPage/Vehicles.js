@@ -41,11 +41,14 @@ export default class Vehicles extends Component {
         withCredentials: true,
       })
       .then((res) => {
-        this.setState({
-          isAuthenticating: false,
-          isAuthenticated: true,
-          user: res.data,
-        });
+        this.setState(
+          {
+            isAuthenticating: false,
+            isAuthenticated: true,
+            user: res.data,
+          },
+          console.log(res.data)
+        );
       })
       .catch(() => {
         this.setState({
@@ -53,19 +56,21 @@ export default class Vehicles extends Component {
           isAuthenticated: false,
         });
       });
+
     if (this.state.isAuthenticated) {
       axios
         .get(`${this.state.API_URL}/vehicles/get/${event.target.id}`)
         .then((response) => {
           let newOwners = response.data[0].owners;
           newOwners.push(this.state.user);
+          console.log(newOwners);
           axios.post(
             `${this.state.API_URL}/vehicles/update/${event.target.id}`,
             { owners: newOwners }
           );
         });
     } else {
-      window.location.href = `${this.state.API_URL}/login`;
+      window.location.href = `${this.state.API_URL}/protected`;
     }
   };
 

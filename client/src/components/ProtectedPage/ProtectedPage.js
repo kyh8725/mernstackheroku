@@ -34,7 +34,7 @@ export default class ProtectedPage extends Component {
   render() {
     return (
       <>
-        <section>
+        <section className="protected">
           <AuthButton />
           <p>
             <strong>This page is under construction </strong>

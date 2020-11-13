@@ -13,11 +13,11 @@ export default class garage extends Component {
 
   async componentDidMount() {
     await axios
-      .get(`http://localhost:5000/vehicles/kyh8725`)
+      .get(`${this.state.API_URL}/vehicles/${this.props.userName}`)
       .then((response) => {
         this.setState({ vehicles: response.data });
       });
-    console.log(this.props.props);
+    console.log(this.props);
     console.log(this.state.vehicles);
   }
 
@@ -60,7 +60,6 @@ export default class garage extends Component {
     return (
       <>
         <div className="garage">
-          <p>img log out button</p>
           <div className="garage__app">
             <div className="garage__app-top">
               <div className="garage__app-top-menu">
