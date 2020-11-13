@@ -57,19 +57,16 @@ export default class Vehicles extends Component {
   };
 
   addVehicle = (event) => {
-    console.log(this.state.isAuthenticated);
-    console.log(this.state.user);
-    console.log(event.target.id);
+    const vehicleId = event.target.id;
 
     if (this.state.isAuthenticated) {
       axios
-        .get(`${this.state.API_URL}/vehicles/get/${event.target.id}`)
+        .get(`${this.state.API_URL}/vehicles/get/${vehicleId}`)
         .then((response) => {
           let newOwners = response.data[0].owners;
           newOwners.push(this.state.user);
-          console.log(newOwners);
           axios
-            .post(`${this.state.API_URL}/vehicles/update/${event.target.id}`, {
+            .post(`${this.state.API_URL}/vehicles/update/${vehicleId}`, {
               owners: newOwners,
             })
             .then((response) => {
