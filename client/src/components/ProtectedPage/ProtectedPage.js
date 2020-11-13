@@ -35,9 +35,9 @@ export default class ProtectedPage extends Component {
     return (
       <>
         <AuthButton />
-        <p>
-          <strong>This page is under construction </strong>
-        </p>
+        <h3 style={{ textAlign: "center", color: "red" }}>
+          <strong>This page is under construction</strong>
+        </h3>
         <Garage userName={this.state.userName} />
       </>
     );

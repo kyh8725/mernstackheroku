@@ -34,6 +34,25 @@ export default class garage extends Component {
     this.setState({ finance: opposite });
   };
 
+  deleteCar = (event) => {
+    const vehicleId = event.target.id;
+
+    axios
+      .get(`${this.state.API_URL}/vehicles/get/${vehicleId}`)
+      .then((response) => {
+        let newOwners = response.data[0].owners.filter(
+          (user) => user !== this.props.userName
+        );
+        axios
+          .post(`${this.state.API_URL}/vehicles/update/${vehicleId}`, {
+            owners: newOwners,
+          })
+          .then((response) => {
+            window.alert("vehicle successfully removed from your garage");
+          });
+      });
+  };
+
   renderCars = () => {
     const ownedVehicles = this.state.vehicles.map((car) => {
       return (
@@ -52,14 +71,17 @@ export default class garage extends Component {
             </div>
             <div className="garage__car-card-button">
               <Button
+                id={car._id}
                 className="garage__car-card-update"
                 variant="outline-primary"
               >
                 update
               </Button>
               <Button
+                id={car._id}
                 className="garage__car-card-delete"
                 variant="outline-danger"
+                onClick={this.deleteCar}
               >
                 delete
               </Button>

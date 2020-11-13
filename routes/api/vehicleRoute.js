@@ -48,17 +48,6 @@ router.post("/update/:id", async (req, res) => {
   }
 });
 
-router.delete("/remove/:model", async (req, res) => {
-  try {
-    const removedVehicle = Vehicle.remove({
-      model: req.params.model,
-    });
-    res.json(removedVehicle);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
 router.post("/newvehicles", async (req, res) => {
   const vehicle = new Vehicle({
     make: req.body.make,
