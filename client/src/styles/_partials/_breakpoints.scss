@@ -1,4 +1,10 @@
 /* media query for tablet */
+@mixin small {
+  @media only screen and (min-width: 440px) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media only screen and (min-width: 993px) {
     @content;

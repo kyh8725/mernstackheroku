@@ -11,32 +11,33 @@ router.get("/allvehicles", async (req, res) => {
   }
 });
 
+// get vehicles owned by a user
+router.get("/:userName", async (req, res) => {
+  try {
+    const data = await Vehicle.find({ owners: req.params.userName });
+    res.send(data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // finds car with matching model
 
-router.get("/get/:model", async (req, res) => {
+router.get("/get/:id", async (req, res) => {
   try {
-    const car = await Vehicle.find({ model: req.params.model.toUpperCase() });
+    const car = await Vehicle.find({ _id: req.params.id });
     res.status(200).json(car);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// finds car with matching model and changes img address (req.body.img)
-
-router.post("/update/:model", async (req, res) => {
+// finds car with matching model and updates
+router.post("/update/:id", async (req, res) => {
   try {
     const updatedVehicle = await Vehicle.findOneAndUpdate(
-      { model: req.params.model.toUpperCase() },
+      { _id: req.params.id },
       {
-        make: req.body.make,
-        model: req.body.model,
-        year: req.body.year,
-        transmission: req.body.transmission,
-        color: req.body.color,
-        type: req.body.type,
-        price: req.body.price,
-        img: req.body.img,
         owners: req.body.owners,
       },
       { new: true }
@@ -50,7 +51,7 @@ router.post("/update/:model", async (req, res) => {
 router.delete("/remove/:model", async (req, res) => {
   try {
     const removedVehicle = Vehicle.remove({
-      model: req.params.model.toUpperCase(),
+      model: req.params.model,
     });
     res.json(removedVehicle);
   } catch (err) {

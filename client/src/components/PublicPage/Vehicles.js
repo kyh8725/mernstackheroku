@@ -16,6 +16,9 @@ export default class Vehicles extends Component {
     type: "all",
     model: "",
     popOver: [],
+    isAuthenticating: true,
+    isAuthenticated: false,
+    user: null,
   };
 
   async componentDidMount() {
@@ -32,12 +35,38 @@ export default class Vehicles extends Component {
     }
   };
 
-  getModel = (event) => {
-    event.preventDefault();
-    console.log(this.state.model);
-  };
-  setModel = (event) => {
-    this.setState({ model: event.target.value });
+  addVehicle = (event) => {
+    axios
+      .get(`${this.state.API_URL}/passport/check-auth`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({
+          isAuthenticating: false,
+          isAuthenticated: true,
+          user: res.data,
+        });
+      })
+      .catch(() => {
+        this.setState({
+          isAuthenticating: false,
+          isAuthenticated: false,
+        });
+      });
+    if (this.state.isAuthenticated) {
+      axios
+        .get(`${this.state.API_URL}/vehicles/get/${event.target.id}`)
+        .then((response) => {
+          let newOwners = response.data[0].owners;
+          newOwners.push(this.state.user);
+          axios.post(
+            `${this.state.API_URL}/vehicles/update/${event.target.id}`,
+            { owners: newOwners }
+          );
+        });
+    } else {
+      window.location.href = `${this.state.API_URL}/login`;
+    }
   };
 
   vehicleCard = () => {
@@ -49,54 +78,65 @@ export default class Vehicles extends Component {
         (vehicle) => vehicle.type === this.state.type
       );
     }
+
     const card = filteredCar.map((vehicle) => {
-      return (
-        <>
-          <div className="vehicleCard">
-            <h3 className="vehicleCard__title">
-              {vehicle.year} {"  "}
-              {vehicle.make}
-              {"  "}
-              {vehicle.model}
-            </h3>
-            <div className="vehicleCard__imgD">
-              <img src={vehicle.img} alt="" />
-            </div>
-            <h6 className="vehicleCard__msrp">MSRP starting from </h6>
-            <h5 className="vehicleCard__price">
-              ${vehicle.price.toLocaleString()}
-            </h5>
-            {
-              <OverlayTrigger
-                trigger="click"
-                placement="right"
-                key={vehicle._id}
-                overlay={
-                  <Popover id={vehicle._id}>
-                    <Popover.Title as="h1">
-                      {vehicle.year} {vehicle.make} {vehicle.model}
-                    </Popover.Title>
-                    <Popover.Content>
-                      <strong>
-                        <p>HorsePower (hp): {vehicle.hp} </p>
-                        <p>Torque (lb-ft): {vehicle.tq} </p>
-                        <p>Transmission: {vehicle.transmission}</p>{" "}
-                      </strong>
-                    </Popover.Content>
-                  </Popover>
-                }
+      if (vehicle.owners.includes("Daniel")) {
+        return (
+          <>
+            <div className="vehicleCard">
+              <h3 className="vehicleCard__title">
+                {vehicle.year} {"  "}
+                {vehicle.make}
+                {"  "}
+                {vehicle.model}
+              </h3>
+              <div className="vehicleCard__imgD">
+                <img src={vehicle.img} alt="" />
+              </div>
+              <h6 className="vehicleCard__msrp">MSRP starting from </h6>
+              <h5 className="vehicleCard__price">
+                ${vehicle.price.toLocaleString()}
+              </h5>
+              {
+                <OverlayTrigger
+                  trigger="click"
+                  placement="right"
+                  key={vehicle._id}
+                  overlay={
+                    <Popover id={vehicle._id}>
+                      <Popover.Title as="h1">
+                        {vehicle.year} {vehicle.make} {vehicle.model}
+                      </Popover.Title>
+                      <Popover.Content>
+                        <strong>
+                          <p>HorsePower (hp): {vehicle.hp} </p>
+                          <p>Torque (lb-ft): {vehicle.tq} </p>
+                          <p>Transmission: {vehicle.transmission}</p>{" "}
+                        </strong>
+                      </Popover.Content>
+                    </Popover>
+                  }
+                >
+                  <Button
+                    className="vehicleCard__btn"
+                    variant="outline-primary"
+                  >
+                    Specs
+                  </Button>
+                </OverlayTrigger>
+              }
+              <Button
+                id={vehicle._id}
+                className="vehicleCard__btn"
+                variant="outline-primary"
+                onClick={this.addVehicle}
               >
-                <Button className="vehicleCard__btn" variant="outline-primary">
-                  Specs
-                </Button>
-              </OverlayTrigger>
-            }
-            <Button className="vehicleCard__btn" variant="outline-primary">
-              Add to Garage
-            </Button>
-          </div>
-        </>
-      );
+                Add to Garage
+              </Button>
+            </div>
+          </>
+        );
+      }
     });
     return card;
   };

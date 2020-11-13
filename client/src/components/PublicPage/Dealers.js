@@ -51,10 +51,10 @@ export default class Dealers extends Component {
       return (
         <div>
           <div className="dealer__name">
-            <h4>
+            <h5>
               {counter}. {dealer.name}
               &nbsp;&nbsp;
-            </h4>
+            </h5>
             &nbsp;&nbsp;
             {this.state.activeDealer !== dealer._id && (
               <FontAwesomeIcon
@@ -75,20 +75,20 @@ export default class Dealers extends Component {
           </div>
           {this.state.activeDealer === dealer._id && (
             <div className="dealer__info" id={dealer._id}>
-              <h5 className="dealer__info-address">{dealer.address}</h5>
+              <h6 className="dealer__info-address">{dealer.address}</h6>
               <div>
                 <a href={`tel:${dealer.tel}}`}>
-                  <h5 className="dealer__info-tel">tel: {dealer.tel}</h5>
+                  <h6 className="dealer__info-tel">tel: {dealer.tel}</h6>
                 </a>
                 <a href={`fax:${dealer.fax}}`}>
-                  <h5 className="dealer__info-fax">fax: {dealer.fax}</h5>
+                  <h6 className="dealer__info-fax">fax: {dealer.fax}</h6>
                 </a>
                 <a
                   href="https://kyh8725.github.io/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <h5 className="dealer__info-web">{dealer.web}</h5>
+                  <h6 className="dealer__info-web">{dealer.web}</h6>
                 </a>
                 <p>Hours: Mon - Sat 8:00 - 6:00</p>
               </div>

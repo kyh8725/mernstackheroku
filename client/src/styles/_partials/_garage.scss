@@ -11,6 +11,9 @@
     &-top {
       margin: 1.5rem 2rem;
       &-menu {
+        &:hover {
+          cursor: pointer;
+        }
         &-title {
           border-bottom: 1px solid rgb(219, 219, 219);
           padding-bottom: 1rem;
@@ -39,16 +42,34 @@
   &__car-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     border: 1px solid grey;
     margin: 1rem;
     padding: 1rem;
+    &-yourcar {
+      font-weight: lighter;
+    }
 
     &-bottom {
       img {
-        width: 100%;
+        transform: rotate(0deg);
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+        max-width: 15rem;
+        max-height: 30rem;
       }
     }
+  }
+}
+
+@include small {
+  .garage {
+    margin: 0 3rem;
   }
 }
 
@@ -70,12 +91,16 @@
 
 @include desk {
   .garage {
+    margin: 2rem 12rem;
     &__car-card {
       flex-direction: row;
       flex-wrap: nowrap;
       flex: 1;
       max-height: 25rem;
       &-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         flex: 0.5;
       }
       &-bottom {

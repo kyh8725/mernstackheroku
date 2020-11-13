@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import AuthButton from "../AuthButton";
+import Garage from "../ProtectedPage/Garage";
 import axios from "axios";
 
 export default class ProtectedPage extends Component {
   state = {
     API_URL: process.env.REACT_APP_API_URL,
     users: [],
+    userName: this.props.user.username || this.props.user.displayName,
   };
 
   async componentDidMount() {
@@ -16,14 +18,13 @@ export default class ProtectedPage extends Component {
   }
 
   createUser = () => {
-    const newUserName = this.props.user.username || this.props.user.displayName;
     try {
       axios
         .post(`${this.state.API_URL}/users/newUser`, {
-          userName: newUserName,
+          userName: this.state.userName,
         })
         .then((response) => {
-          console.log(`${newUserName}, created"`);
+          console.log(`${this.state.userName}, created"`);
         });
     } catch (err) {
       console.log(err);
@@ -31,17 +32,14 @@ export default class ProtectedPage extends Component {
   };
 
   render() {
-    console.log("protected render", this.props);
-    console.log("protected render", this.state.users);
     return (
       <>
-        <section className="garage">
+        <section>
           <AuthButton />
           <p>
             <strong>This page is under construction </strong>
           </p>
-          <p>saved vehicles will be shown here</p>
-          <h1>{this.props.user.username || this.props.user.displayName}</h1>
+          <Garage userName={this.state.userName} />
         </section>
       </>
     );

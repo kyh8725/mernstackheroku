@@ -42,7 +42,7 @@ const VehicleSchema = new Schema({
     required: true,
     trim: true,
   },
-  owners: [],
+  owners: [String],
 });
 
 module.exports = mongoose.model("Vehicle", VehicleSchema);
