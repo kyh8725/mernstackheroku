@@ -27,6 +27,7 @@ export default class Vehicles extends Component {
       .then((response) => {
         this.setState({ vehicles: response.data });
       });
+    this.checkAuth();
   }
 
   sortModel = (event) => {
@@ -35,7 +36,7 @@ export default class Vehicles extends Component {
     }
   };
 
-  addVehicle = (event) => {
+  checkAuth = () => {
     axios
       .get(`${this.state.API_URL}/passport/check-auth`, {
         withCredentials: true,
@@ -56,7 +57,9 @@ export default class Vehicles extends Component {
           isAuthenticated: false,
         });
       });
+  };
 
+  addVehicle = (event) => {
     if (this.state.isAuthenticated) {
       axios
         .get(`${this.state.API_URL}/vehicles/get/${event.target.id}`)
