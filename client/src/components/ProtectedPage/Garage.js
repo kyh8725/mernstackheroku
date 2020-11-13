@@ -141,7 +141,7 @@ export default class garage extends Component {
                   </li>
                   <li>
                     <a
-                      href="/warranty"
+                      href="/protected"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -176,7 +176,7 @@ export default class garage extends Component {
                   </li>
                   <li>
                     <a
-                      href="/maintenance"
+                      href="/protected"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -185,7 +185,7 @@ export default class garage extends Component {
                   </li>
                   <li>
                     <a
-                      href="/warranty"
+                      href="/protected"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

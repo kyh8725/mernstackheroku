@@ -42,14 +42,11 @@ export default class Vehicles extends Component {
         withCredentials: true,
       })
       .then((res) => {
-        this.setState(
-          {
-            isAuthenticating: false,
-            isAuthenticated: true,
-            user: res.data,
-          },
-          console.log(res.data)
-        );
+        this.setState({
+          isAuthenticating: false,
+          isAuthenticated: true,
+          user: res.data.username || res.data.displayName,
+        });
       })
       .catch(() => {
         this.setState({
@@ -60,6 +57,10 @@ export default class Vehicles extends Component {
   };
 
   addVehicle = (event) => {
+    console.log(this.state.isAuthenticated);
+    console.log(this.state.user);
+    console.log(event.target.id);
+
     if (this.state.isAuthenticated) {
       axios
         .get(`${this.state.API_URL}/vehicles/get/${event.target.id}`)
@@ -67,10 +68,14 @@ export default class Vehicles extends Component {
           let newOwners = response.data[0].owners;
           newOwners.push(this.state.user);
           console.log(newOwners);
-          axios.post(
-            `${this.state.API_URL}/vehicles/update/${event.target.id}`,
-            { owners: newOwners }
-          );
+          axios
+            .post(`${this.state.API_URL}/vehicles/update/${event.target.id}`, {
+              owners: newOwners,
+            })
+            .then((response) => {
+              console.log(newOwners);
+              console.log(response.data);
+            });
         });
     } else {
       window.location.href = `${this.state.API_URL}/protected`;
