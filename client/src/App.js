@@ -9,7 +9,7 @@ import Contact from "./components/PublicPage/Contact";
 import Footer from "./components/PublicPage/Footer";
 import Vehicles from "./components/PublicPage/Vehicles";
 import Dealers from "./components/PublicPage/Dealers";
-import Garage from "./components/ProtectedPage/Garage";
+import PlayApi from "./components/ProtectedPage/PlayApi";
 
 export default class App extends Component {
   render() {
@@ -29,7 +29,7 @@ export default class App extends Component {
           <Route path="/vehicles" component={Vehicles} />
           <Route path="/contact" component={Contact} />
           <Route path="/dealers" component={Dealers} />
-          <Route path="/dev" component={Garage} />
+          <Route path="/dev" component={PlayApi} />
           <PrivateRoute path="/protected" component={ProtectedPage} />
         </div>
         <Footer />

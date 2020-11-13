@@ -180,15 +180,6 @@ export default class garage extends Component {
                       Find a Dealer
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/protected"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      My Credit Applications
-                    </a>
-                  </li>
                 </ul>
               </div>
               <div className="garage__app-top-menu">
@@ -212,9 +203,6 @@ export default class garage extends Component {
                   className="garage__collapse"
                   style={{ display: this.state.finance ? "block" : "none" }}
                 >
-                  <li>
-                    <a href="/protected">Summary</a>
-                  </li>
                   <li>
                     <a
                       href="/protected"

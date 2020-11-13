@@ -6,6 +6,7 @@ import {
   Marker,
   LoadingContainer,
 } from "google-maps-react";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import axios from "axios";
 
 export class MapContainer extends Component {
@@ -22,7 +23,6 @@ export class MapContainer extends Component {
   };
 
   async componentDidMount() {
-    console.log(this.props);
     await axios.get(`${this.state.API_URL}/dealers/getall`).then((response) => {
       this.setState({ markerPlaces: response.data });
     });
@@ -34,12 +34,10 @@ export class MapContainer extends Component {
       .then((response) => {
         this.setState({ selectedPlace: response.data[0] });
       });
-
     this.setState({
       activeMarker: marker,
       showingInfoWindow: true,
     });
-
     this.props.getActiveMarker(props.id);
   };
 
@@ -58,7 +56,7 @@ export class MapContainer extends Component {
         <Marker
           id={place._id}
           onClick={this.onMarkerClick}
-          title={place.title}
+          title={place.name}
           name={place.name}
           position={{ lat: place.lat, lng: place.long }}
         />

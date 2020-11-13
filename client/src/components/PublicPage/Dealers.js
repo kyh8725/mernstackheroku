@@ -6,6 +6,7 @@ import {
   faCaretSquareDown,
   faCaretSquareUp,
 } from "@fortawesome/free-solid-svg-icons";
+import Spinner from "react-bootstrap/Spinner";
 
 export default class Dealers extends Component {
   state = {
@@ -100,14 +101,22 @@ export default class Dealers extends Component {
     return dealers;
   };
   render() {
-    return (
-      <>
-        <h1 className="dealer__title">Find Dealers in Vancouver</h1>
-        <div className="dealer">
-          <GoogleMap getActiveMarker={this.getActiveMarker} />
-          <div className="dealer__list">{this.dealerList()}</div>
+    if (this.state.dealers.length === 0) {
+      return (
+        <div className="spinner-wrap">
+          <Spinner animation="border" />
         </div>
-      </>
-    );
+      );
+    } else {
+      return (
+        <>
+          <h1 className="dealer__title">Find Dealers in Vancouver</h1>
+          <div className="dealer">
+            <GoogleMap getActiveMarker={this.getActiveMarker} />
+            <div className="dealer__list">{this.dealerList()}</div>
+          </div>
+        </>
+      );
+    }
   }
 }

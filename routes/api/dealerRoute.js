@@ -19,5 +19,13 @@ router.get("/getByName/:name", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get("/getById/:id", async (req, res) => {
+  try {
+    const data = await Dealer.find({ _id: req.params.id });
+    res.send(data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

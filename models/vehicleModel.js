@@ -41,6 +41,7 @@ const VehicleSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    default: "https://i.ibb.co/XsgSf9Y/default-Car.png",
   },
   owners: [String],
 });
