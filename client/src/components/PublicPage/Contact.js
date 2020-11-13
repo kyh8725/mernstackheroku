@@ -35,7 +35,7 @@ export default class Contacts extends Component {
         <section className="contact">
           <h1 className="contact__title">Contact Us</h1>
           <h5 className="contact__description">
-            Thank you for taking the time to explore my project.
+            Thank you for taking time to explore my project.
           </h5>
           <p className="contact__description2">
             This project was first started with intention in practicing
