@@ -47,7 +47,11 @@ export default class garage extends Component {
             owners: newOwners,
           })
           .then((response) => {
-            this.setState({ refresh: !this.state.refresh });
+            axios
+              .get(`${this.state.API_URL}/vehicles/${this.props.userName}`)
+              .then((response) => {
+                this.setState({ vehicles: response.data });
+              });
             window.alert("vehicle successfully removed from your garage");
           });
       });
