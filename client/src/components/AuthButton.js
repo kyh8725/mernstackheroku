@@ -40,7 +40,7 @@ class AuthButton extends Component {
     // or a "not logged in" message
     return (
       this.state.isAuthenticated && (
-        <p>
+        <p style={{ textAlign: "center", color: "red" }}>
           <img
             className="profile-img"
             height="25"
