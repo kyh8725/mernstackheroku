@@ -48,6 +48,7 @@
     border: 1px solid grey;
     margin: 1rem;
     padding: 1rem;
+
     &-yourcar {
       font-weight: lighter;
     }
@@ -109,10 +110,11 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        flex: 0.5;
+        flex: 0.6;
+        margin-right: 1rem;
       }
       &-bottom {
-        flex: 0.5;
+        flex: 0.4;
         img {
           max-width: 37.5rem;
           max-height: 20rem;

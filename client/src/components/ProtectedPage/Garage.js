@@ -74,13 +74,13 @@ export default class garage extends Component {
               <img src={car.img} alt="" />
             </div>
             <div className="garage__car-card-button">
-              <Button
+              {/* <Button
                 id={car._id}
                 className="garage__car-card-update"
                 variant="outline-primary"
               >
                 update
-              </Button>
+              </Button> */}
               <Button
                 id={car._id}
                 className="garage__car-card-delete"
