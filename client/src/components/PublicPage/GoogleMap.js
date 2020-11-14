@@ -6,7 +6,6 @@ import {
   Marker,
   LoadingContainer,
 } from "google-maps-react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import axios from "axios";
 
 export class MapContainer extends Component {

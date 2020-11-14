@@ -1005,22 +1005,6 @@
   -webkit-box-orient: vertical;
 }
 
-.protected {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 .garage {
   text-align: center;
 }
@@ -1035,6 +1019,10 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 1rem;
+}
+
+.garage__app {
+  width: 100%;
 }
 
 .garage__app-top {
@@ -1096,6 +1084,14 @@
 
 .garage__car-card-yourcar {
   font-weight: lighter;
+}
+
+.garage__car-card-button {
+  width: 100%;
+}
+
+.garage__car-card-button button {
+  margin: 1rem 1rem;
 }
 
 .garage__car-card-bottom img {
@@ -1166,6 +1162,9 @@
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-flex: 0.5;
         -ms-flex: 0.5;
             flex: 0.5;
@@ -1570,6 +1569,21 @@
     margin-left: 2rem;
     min-width: 30rem;
   }
+}
+
+.api__vehicles {
+  margin: 1rem;
+}
+
+.api__vehicles-form {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.transmission {
+  display: inline-block;
 }
 
 a {

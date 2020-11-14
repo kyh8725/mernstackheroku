@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import PrivateRoute from "../PrivateRoute";
 import AuthButton from "../AuthButton";
 import Garage from "../ProtectedPage/Garage";
 import axios from "axios";
+import PlayApi from "./PlayApi";
 
 export default class ProtectedPage extends Component {
   state = {
@@ -39,6 +42,9 @@ export default class ProtectedPage extends Component {
           <strong>This page is under construction</strong>
         </h3>
         <Garage userName={this.state.userName} />
+        <Router>
+          <PrivateRoute path="/warranty" component={PlayApi} />
+        </Router>
       </>
     );
   }

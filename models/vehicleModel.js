@@ -24,7 +24,6 @@ const VehicleSchema = new Schema({
   },
   color: {
     type: String,
-    required: true,
     trim: true,
   },
   type: {
@@ -34,12 +33,22 @@ const VehicleSchema = new Schema({
   },
   price: {
     type: Number,
-    required: true,
+    trim: true,
+  },
+  hp: {
+    type: String,
+    trim: true,
+  },
+  tq: {
+    type: String,
+    trim: true,
+  },
+  vin: {
+    type: String,
     trim: true,
   },
   img: {
     type: String,
-    required: true,
     trim: true,
     default: "https://i.ibb.co/XsgSf9Y/default-Car.png",
   },

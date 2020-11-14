@@ -1,0 +1,11 @@
+.api {
+  &__vehicles {
+    margin: 1rem;
+    &-form {
+      flex-direction: column;
+    }
+  }
+}
+.transmission {
+  display: inline-block;
+}
