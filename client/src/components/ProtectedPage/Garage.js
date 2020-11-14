@@ -128,22 +128,10 @@ export default class garage extends Component {
                     <a href="/protected">Dashboard</a>
                   </li>
                   <li>
-                    <a
-                      href="/maintenance"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Maintenance
-                    </a>
+                    <a href="/maintenance">Maintenance</a>
                   </li>
                   <li>
-                    <a
-                      href="/warranty"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Warranty
-                    </a>
+                    <a href="/warranty">Warranty</a>
                   </li>
                 </ul>
               </div>
@@ -172,13 +160,7 @@ export default class garage extends Component {
                     <a href="/protected">My Saved Vehicles</a>
                   </li>
                   <li>
-                    <a
-                      href="/dealers"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Find a Dealer
-                    </a>
+                    <a href="/dealers">Find a Dealer</a>
                   </li>
                 </ul>
               </div>
@@ -204,22 +186,10 @@ export default class garage extends Component {
                   style={{ display: this.state.finance ? "block" : "none" }}
                 >
                   <li>
-                    <a
-                      href="/protected"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Trnasaction History
-                    </a>
+                    <a href="/protected">Trnasaction History</a>
                   </li>
                   <li>
-                    <a
-                      href="/protected"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Lease Information
-                    </a>
+                    <a href="/protected">Lease Information</a>
                   </li>
                 </ul>
               </div>

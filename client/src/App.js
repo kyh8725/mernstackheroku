@@ -32,7 +32,6 @@ export default class App extends Component {
           <Route path="/dealers" component={Dealers} />
           <Route path="/dev" component={PlayApi} />
           <PrivateRoute path="/protected" component={ProtectedPage} />
-          <PrivateRoute path="/warranty" component={ProtectedPage} />
         </div>
         <Footer />
       </Router>
