@@ -1165,18 +1165,24 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    -webkit-box-flex: 0.5;
-        -ms-flex: 0.5;
-            flex: 0.5;
+    -webkit-box-flex: 0.6;
+        -ms-flex: 0.6;
+            flex: 0.6;
+    margin-right: 1rem;
   }
   .garage__car-card-bottom {
-    -webkit-box-flex: 0.5;
-        -ms-flex: 0.5;
-            flex: 0.5;
+    -webkit-box-flex: 0.3;
+        -ms-flex: 0.3;
+            flex: 0.3;
   }
   .garage__car-card-bottom img {
     max-width: 37.5rem;
     max-height: 20rem;
+  }
+  .garage__car-card-button {
+    -webkit-box-flex: 0.1;
+        -ms-flex: 0.1;
+            flex: 0.1;
   }
 }
 
