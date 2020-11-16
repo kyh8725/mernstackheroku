@@ -1029,6 +1029,10 @@
   margin: 1.5rem 2rem;
 }
 
+.garage__app-top-menu {
+  margin-top: 1rem;
+}
+
 .garage__app-top-menu:hover {
   cursor: pointer;
 }
@@ -1036,6 +1040,7 @@
 .garage__app-top-menu-title {
   border-bottom: 1px solid #dbdbdb;
   padding-bottom: 1rem;
+  margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

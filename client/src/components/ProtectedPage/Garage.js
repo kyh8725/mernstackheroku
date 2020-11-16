@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faMinus,
+  faWindowRestore,
+} from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 export default class garage extends Component {
   state = {
     vehicles: [],
-    owners: false,
+    owners: true,
     shopping: false,
     finance: false,
     API_URL: process.env.REACT_APP_API_URL,
     refresh: false,
+    navState: "/protected",
   };
 
   async componentDidMount() {
@@ -19,6 +24,9 @@ export default class garage extends Component {
       .then((response) => {
         this.setState({ vehicles: response.data });
       });
+    await this.navStyle();
+    console.log(window.location.pathname);
+    console.log(this.state.navState);
   }
 
   setOwners = (opposite) => {
@@ -31,6 +39,35 @@ export default class garage extends Component {
 
   setFinance = (opposite) => {
     this.setState({ finance: opposite });
+  };
+
+  navStyle = () => {
+    if (window.location.pathname === "/warranty") {
+      this.setState({ navState: "/warranty" });
+      this.setOwners(true);
+      this.setShopping(false);
+      this.setFinance(false);
+    } else if (window.location.pathname === "/maintenance") {
+      this.setState({ navState: "/maintenance" });
+      this.setOwners(true);
+      this.setShopping(false);
+      this.setFinance(false);
+    } else if (window.location.pathname === "/savedVehicles") {
+      this.setState({ navState: "/savedVehicles" });
+      this.setOwners(false);
+      this.setShopping(true);
+      this.setFinance(false);
+    } else if (window.location.pathname === "/lease") {
+      this.setState({ navState: "/lease" });
+      this.setOwners(false);
+      this.setShopping(false);
+      this.setFinance(true);
+    } else if (window.location.pathname === "/history") {
+      this.setState({ navState: "/history" });
+      this.setOwners(false);
+      this.setShopping(false);
+      this.setFinance(true);
+    }
   };
 
   deleteCar = (event) => {
@@ -98,6 +135,7 @@ export default class garage extends Component {
   };
 
   render() {
+    const borderLeftStyle = "4px solid rgb(88, 174, 219)";
     return (
       <>
         <div className="garage">
@@ -124,13 +162,34 @@ export default class garage extends Component {
                   className="garage__collapse"
                   style={{ display: this.state.owners ? "block" : "none" }}
                 >
-                  <li>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/protected"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
                     <a href="/protected">Dashboard</a>
                   </li>
-                  <li>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/maintenance"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
                     <a href="/maintenance">Maintenance</a>
                   </li>
-                  <li>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/warranty"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
                     <a href="/warranty">Warranty</a>
                   </li>
                 </ul>
@@ -156,10 +215,24 @@ export default class garage extends Component {
                   className="garage__collapse"
                   style={{ display: this.state.shopping ? "block" : "none" }}
                 >
-                  <li>
-                    <a href="/protected">My Saved Vehicles</a>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/savedVehicle"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
+                    <a href="/savedVehicle">My Saved Vehicles</a>
                   </li>
-                  <li>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/dealers"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
                     <a href="/dealers">Find a Dealer</a>
                   </li>
                 </ul>
@@ -185,11 +258,25 @@ export default class garage extends Component {
                   className="garage__collapse"
                   style={{ display: this.state.finance ? "block" : "none" }}
                 >
-                  <li>
-                    <a href="/protected">Trnasaction History</a>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/history"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
+                    <a href="/history">Transaction History</a>
                   </li>
-                  <li>
-                    <a href="/protected">Lease Information</a>
+                  <li
+                    style={{
+                      borderLeft:
+                        this.state.navState === "/lease"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
+                    <a href="/lease">Lease Information</a>
                   </li>
                 </ul>
               </div>
