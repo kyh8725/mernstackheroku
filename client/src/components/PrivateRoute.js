@@ -54,7 +54,7 @@ class PrivateRoute extends Component {
                 <Spinner animation="border" />
               </div>
             );
-          return true ? (
+          return this.state.isAuthenticated ? (
             <Component user={this.state.user} {...props} />
           ) : (
             <Redirect

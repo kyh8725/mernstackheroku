@@ -10,7 +10,6 @@ import Footer from "./components/PublicPage/Footer";
 import Vehicles from "./components/PublicPage/Vehicles";
 import Dealers from "./components/PublicPage/Dealers";
 import Garage from "./components/ProtectedPage/Garage";
-import PlayApi from "./components/ProtectedPage/PlayApi";
 
 export default class App extends Component {
   render() {
