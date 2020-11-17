@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faMinus,
-  faWindowRestore,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 export default class garage extends Component {
@@ -44,11 +40,6 @@ export default class garage extends Component {
   navStyle = () => {
     if (window.location.pathname === "/warranty") {
       this.setState({ navState: "/warranty" });
-      this.setOwners(true);
-      this.setShopping(false);
-      this.setFinance(false);
-    } else if (window.location.pathname === "/maintenance") {
-      this.setState({ navState: "/maintenance" });
       this.setOwners(true);
       this.setShopping(false);
       this.setFinance(false);
@@ -172,16 +163,7 @@ export default class garage extends Component {
                   >
                     <a href="/protected">Dashboard</a>
                   </li>
-                  <li
-                    style={{
-                      borderLeft:
-                        this.state.navState === "/maintenance"
-                          ? borderLeftStyle
-                          : "0px",
-                    }}
-                  >
-                    <a href="/maintenance">Maintenance</a>
-                  </li>
+
                   <li
                     style={{
                       borderLeft:

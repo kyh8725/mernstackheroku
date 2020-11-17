@@ -1,0 +1,34 @@
+.warranty {
+  margin: 2rem;
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 10vw;
+    background-color: rgb(238, 236, 236);
+    &-head {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+@include small {
+  .warranty {
+    margin: 2rem 5rem;
+  }
+}
+@include tablet {
+  .warranty {
+    &__detail {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+@include desk {
+  .warranty {
+    margin: 2rem 14rem;
+  }
+}

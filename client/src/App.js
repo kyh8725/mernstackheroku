@@ -33,7 +33,8 @@ export default class App extends Component {
           <Route path="/dev" component={Garage} />
           <PrivateRoute path="/protected" component={ProtectedPage} />
           <PrivateRoute path="/warranty" component={ProtectedPage} />
-          <PrivateRoute path="/maintenance" component={ProtectedPage} />
+          <PrivateRoute path="/history" component={ProtectedPage} />
+          <PrivateRoute path="/lease" component={ProtectedPage} />
         </div>
         <Footer />
       </Router>

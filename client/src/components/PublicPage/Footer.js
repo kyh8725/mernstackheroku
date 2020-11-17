@@ -166,7 +166,13 @@ export default function () {
               <a href="/dealers">Visit Us</a>
             </li>
             <li>
-              <a href="/contact">Career</a>
+              <a
+                href="https://kyh8725.github.io/"
+                target="/blank"
+                rel="noopener noreferrer"
+              >
+                Career
+              </a>
             </li>
           </ul>
         </div>

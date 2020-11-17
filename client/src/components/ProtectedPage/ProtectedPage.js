@@ -11,7 +11,7 @@ export default class ProtectedPage extends Component {
   state = {
     API_URL: process.env.REACT_APP_API_URL,
     users: [],
-    userName: this.props.user.username || this.props.user.displayName,
+    userName: "kyh",
   };
 
   async componentDidMount() {
@@ -45,7 +45,8 @@ export default class ProtectedPage extends Component {
         <Garage userName={this.state.userName} />
         <Router>
           <PrivateRoute path="/warranty" component={Warranty} />
-          <PrivateRoute path="/maintenance" component={PlayApi} />
+          <PrivateRoute path="/history" component={Warranty} />
+          <PrivateRoute path="/lease" component={Warranty} />
         </Router>
       </>
     );

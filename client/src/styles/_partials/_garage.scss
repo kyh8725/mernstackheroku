@@ -27,6 +27,15 @@
         }
       }
     }
+    &-bottom {
+      &-title:after {
+        content: "";
+        display: block;
+        margin: auto auto;
+        width: 10rem;
+        border-bottom: 0.3rem solid black;
+      }
+    }
   }
   &__collapse {
     list-style: none;
