@@ -43,8 +43,9 @@ export default class Contacts extends Component {
             car dealership-like web site because I like sports cars. Most of the
             links are external car dealership's websites at the moment.
             Self-built pages include /home, /vehicles, /login, /contact,
-            /protected and /dealers. I'm tryting to continuosly build new pages
-            with new tech and functionality that I've never used before.
+            /protected, /warranty, /finance and /dealers. I'm tryting to
+            continuosly build new pages with new tech and functionality that
+            I've never used before.
           </p>
           <p className="contact__description2">
             <strong>

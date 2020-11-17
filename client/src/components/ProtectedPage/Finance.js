@@ -26,7 +26,9 @@ export default class Finance extends Component {
       let number = this.generate649Numbs();
       sixfourArray.push(number);
     }
-    sixfourArray.sort();
+    sixfourArray.sort(function (a, b) {
+      return a - b;
+    });
     this.setState({ sixfour: sixfourArray });
   };
 
@@ -49,7 +51,9 @@ export default class Finance extends Component {
       let number = this.generateMaxNumb();
       maxArray.push(number);
     }
-    maxArray.sort();
+    maxArray.sort(function (a, b) {
+      return a - b;
+    });
     this.setState({ max: maxArray });
   };
   renderMax = () => {
