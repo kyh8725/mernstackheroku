@@ -1656,6 +1656,16 @@
   }
 }
 
+.finance {
+  margin: 2rem;
+  text-align: center;
+}
+
+.finance__lotto-numbers {
+  width: 2rem;
+  height: 2rem;
+}
+
 a {
   text-decoration: none;
 }

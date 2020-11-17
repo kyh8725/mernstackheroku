@@ -48,8 +48,8 @@ export default class garage extends Component {
       this.setOwners(false);
       this.setShopping(true);
       this.setFinance(false);
-    } else if (window.location.pathname === "/lease") {
-      this.setState({ navState: "/lease" });
+    } else if (window.location.pathname === "/finance") {
+      this.setState({ navState: "/finance" });
       this.setOwners(false);
       this.setShopping(false);
       this.setFinance(true);
@@ -197,7 +197,7 @@ export default class garage extends Component {
                   className="garage__collapse"
                   style={{ display: this.state.shopping ? "block" : "none" }}
                 >
-                  <li
+                  {/* <li
                     style={{
                       borderLeft:
                         this.state.navState === "/savedVehicle"
@@ -206,7 +206,7 @@ export default class garage extends Component {
                     }}
                   >
                     <a href="/savedVehicle">My Saved Vehicles</a>
-                  </li>
+                  </li> */}
                   <li
                     style={{
                       borderLeft:
@@ -243,23 +243,23 @@ export default class garage extends Component {
                   <li
                     style={{
                       borderLeft:
+                        this.state.navState === "/finance"
+                          ? borderLeftStyle
+                          : "0px",
+                    }}
+                  >
+                    <a href="/finance">Financial Information</a>
+                  </li>
+                  {/* <li
+                    style={{
+                      borderLeft:
                         this.state.navState === "/history"
                           ? borderLeftStyle
                           : "0px",
                     }}
                   >
                     <a href="/history">Transaction History</a>
-                  </li>
-                  <li
-                    style={{
-                      borderLeft:
-                        this.state.navState === "/lease"
-                          ? borderLeftStyle
-                          : "0px",
-                    }}
-                  >
-                    <a href="/lease">Lease Information</a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

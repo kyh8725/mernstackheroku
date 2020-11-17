@@ -6,6 +6,7 @@ import Garage from "../ProtectedPage/Garage";
 import axios from "axios";
 import PlayApi from "./PlayApi";
 import Warranty from "./Warranty";
+import Finance from "./Finance";
 
 export default class ProtectedPage extends Component {
   state = {
@@ -45,8 +46,7 @@ export default class ProtectedPage extends Component {
         <Garage userName={this.state.userName} />
         <Router>
           <PrivateRoute path="/warranty" component={Warranty} />
-          <PrivateRoute path="/history" component={PlayApi} />
-          <PrivateRoute path="/lease" component={Warranty} />
+          <PrivateRoute path="/finance" component={Finance} />
         </Router>
       </>
     );
