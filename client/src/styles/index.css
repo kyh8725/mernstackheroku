@@ -1573,6 +1573,10 @@
 }
 
 @media only screen and (min-width: 993px) {
+  .infoWindow__img {
+    display: block;
+    text-align: right;
+  }
   .dealer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1581,14 +1585,14 @@
         flex-wrap: wrap;
   }
   .dealer div:first-child {
-    -webkit-box-flex: 0.7 !important;
-        -ms-flex: 0.7 !important;
-            flex: 0.7 !important;
+    -webkit-box-flex: 0.5 !important;
+        -ms-flex: 0.5 !important;
+            flex: 0.5 !important;
   }
   .dealer__list {
-    -webkit-box-flex: 0.3;
-        -ms-flex: 0.3;
-            flex: 0.3;
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5;
+            flex: 0.5;
     margin-left: 2rem;
     min-width: 30rem;
   }

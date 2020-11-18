@@ -69,14 +69,20 @@
 }
 
 @include tablet {
+  .infoWindow {
+    &__img {
+      display: block;
+      text-align: right;
+    }
+  }
   .dealer {
     display: flex;
     flex-wrap: wrap;
     div:first-child {
-      flex: 0.7 !important ;
+      flex: 0.5 !important ;
     }
     &__list {
-      flex: 0.3;
+      flex: 0.5;
       margin-left: 2rem;
       min-width: 30rem;
     }

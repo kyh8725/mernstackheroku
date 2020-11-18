@@ -93,11 +93,11 @@ export class MapContainer extends Component {
           <div className="infoWindow">
             <div className="infoWindow__img">
               <img
-                src="https://i.gaw.to/content/photos/31/09/310951_Grand_opening_of_Lamborghini_Uptown_in_Vaughan.jpg"
+                src="https://images.wheels.ca/wp-content/uploads/2019/02/TrackWorthy-DSC_1774-wide-1500x5001.jpg"
                 style={{
                   width: "50vw",
                   height: "50vw",
-                  maxWidth: "10rem",
+                  maxWidth: "13rem",
                   maxHeight: "10rem",
                 }}
                 alt="dealer img"
