@@ -40,7 +40,12 @@ export default class SavedVehicle extends Component {
   };
 
   renderCars = () => {
-    const ownedVehicles = this.state.vehicles.map((car) => {
+    const filteredVehicles = this.state.vehicles.filter((car) => {
+      if (car.owners.includes("Daniel")) {
+        return car;
+      }
+    });
+    const ownedVehicles = filteredVehicles.map((car) => {
       return (
         <>
           <div className="saved-card">
