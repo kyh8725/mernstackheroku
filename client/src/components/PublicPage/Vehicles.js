@@ -64,9 +64,7 @@ export default class Vehicles extends Component {
         .get(`${this.state.API_URL}/vehicles/get/${vehicleId}`)
         .then((response) => {
           let newOwners = response.data[0].owners;
-          console.log(response.data[0].owners);
           newOwners.push(this.state.user);
-          console.log(newOwners);
           axios
             .post(`${this.state.API_URL}/vehicles/update/${vehicleId}`, {
               owners: newOwners,
@@ -77,7 +75,7 @@ export default class Vehicles extends Component {
             });
         });
     } else {
-      window.location.href = `${this.state.API_URL}/dashboard`;
+      window.location.href = `${this.state.API_URL}/login`;
     }
   };
 
