@@ -12,6 +12,7 @@ export default class ProtectedPage extends Component {
   state = {
     API_URL: process.env.REACT_APP_API_URL,
     users: [],
+    vehicles: [],
     userName: this.props.user.username || this.props.user.displayName,
   };
 
@@ -61,26 +62,46 @@ export default class ProtectedPage extends Component {
   };
 
   render() {
-    return (
-      <>
-        <AuthButton />
-        <h4 style={{ textAlign: "center", color: "red" }}>
-          <strong>This page is under construction</strong>
-        </h4>
-        <h5 style={{ textAlign: "center", color: "red" }}>
-          black Aventador = default. It will be added to your account every time
-          you log in.
-        </h5>
-        <Garage userName={this.state.userName} />
-        <Router>
-          <PrivateRoute path="/warranty" component={Warranty} />
-          <PrivateRoute path="/finance" component={Finance} />
-          <PrivateRoute
-            path="/savedVehicle"
-            component={() => <SavedVehicle userName={this.state.userName} />}
-          />
-        </Router>
-      </>
-    );
+    if (this.state.vehicles.length !== 0) {
+      return (
+        <>
+          <AuthButton />
+          <h4 style={{ textAlign: "center", color: "red" }}>
+            <strong>This page is under construction</strong>
+          </h4>
+          <h5 style={{ textAlign: "center", color: "red" }}>
+            Black Aventador will be added to your account every time you log in.
+          </h5>
+          <Garage userName={this.state.userName} />
+          <Router>
+            <PrivateRoute path="/warranty" component={Warranty} />
+            <PrivateRoute path="/finance" component={Finance} />
+            <PrivateRoute
+              path="/savedVehicle"
+              component={() => <SavedVehicle userName={this.state.userName} />}
+            />
+          </Router>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <AuthButton />
+          <h4 style={{ textAlign: "center", color: "red" }}>
+            <strong>This page is under construction</strong>
+          </h4>
+
+          <Garage userName={this.state.userName} />
+          <Router>
+            <PrivateRoute path="/warranty" component={Warranty} />
+            <PrivateRoute path="/finance" component={Finance} />
+            <PrivateRoute
+              path="/savedVehicle"
+              component={() => <SavedVehicle userName={this.state.userName} />}
+            />
+          </Router>
+        </>
+      );
+    }
   }
 }
