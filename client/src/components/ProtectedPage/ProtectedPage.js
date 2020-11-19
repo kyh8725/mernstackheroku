@@ -12,7 +12,7 @@ export default class ProtectedPage extends Component {
   state = {
     API_URL: process.env.REACT_APP_API_URL,
     users: [],
-    userName: this.props.user.username || this.props.user.displayName,
+    userName: "kyh8725",
   };
 
   async componentDidMount() {
@@ -64,12 +64,12 @@ export default class ProtectedPage extends Component {
     return (
       <>
         <AuthButton />
-        <h3 style={{ textAlign: "center", color: "red" }}>
-          <strong>This page is under construction</strong>
-        </h3>
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          <strong>under construction</strong>
+        </h4>
         <h5 style={{ textAlign: "center", color: "red" }}>
-          you will get a black Aventador for default value. It will be added to
-          your account every time you log in.
+          black Aventador = default. It will be added to your account every time
+          you log in.
         </h5>
         <Garage userName={this.state.userName} />
         <Router>

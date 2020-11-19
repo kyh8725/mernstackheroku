@@ -1057,12 +1057,8 @@
   font-size: 1rem;
 }
 
-.garage__app-bottom-title:after {
-  content: "";
-  display: block;
-  margin: auto auto;
-  width: 10rem;
-  border-bottom: 0.3rem solid black;
+.garage__app-bottom-title {
+  margin-bottom: 2rem;
 }
 
 .garage__collapse {
@@ -1133,9 +1129,9 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -1154,7 +1150,23 @@
 
 @media only screen and (min-width: 1440px) {
   .garage {
-    margin: 2rem 12rem;
+    margin: 2rem 2rem;
+  }
+  .garage__app {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .garage__app-top {
+    -webkit-box-flex: 0.4;
+        -ms-flex: 0.4;
+            flex: 0.4;
+    max-width: 25rem;
+  }
+  .garage__app-bottom {
+    -webkit-box-flex: 0.6;
+        -ms-flex: 0.6;
+            flex: 0.6;
   }
   .garage__car-card {
     -webkit-box-orient: horizontal;
@@ -1163,10 +1175,8 @@
             flex-direction: row;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     max-height: 25rem;
+    max-width: 65rem;
   }
   .garage__car-card-top {
     display: -webkit-box;
@@ -1182,15 +1192,7 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    -webkit-box-flex: 0.6;
-        -ms-flex: 0.6;
-            flex: 0.6;
     margin-right: 1rem;
-  }
-  .garage__car-card-bottom {
-    -webkit-box-flex: 0.3;
-        -ms-flex: 0.3;
-            flex: 0.3;
   }
   .garage__car-card-bottom img {
     max-width: 37.5rem;
