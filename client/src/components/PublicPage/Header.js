@@ -48,7 +48,7 @@ export default function Header() {
                   <span> DEALERS</span>
                 </strong>
               </Nav.Link>
-              <Nav.Link href="/protected">
+              <Nav.Link href="/dashboard">
                 <FontAwesomeIcon icon={faUserAlt} size="lg" />
                 <strong>
                   <span>MY ACCOUNT </span>

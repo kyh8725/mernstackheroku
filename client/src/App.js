@@ -30,9 +30,10 @@ export default class App extends Component {
           <Route path="/contact" component={Contact} />
           <Route path="/dealers" component={Dealers} />
           <Route path="/dev" component={Garage} />
-          <PrivateRoute path="/protected" component={ProtectedPage} />
+          <PrivateRoute path="/dashboard" component={ProtectedPage} />
           <PrivateRoute path="/warranty" component={ProtectedPage} />
           <PrivateRoute path="/finance" component={ProtectedPage} />
+          <PrivateRoute path="/savedVehicle" component={ProtectedPage} />
         </div>
         <Footer />
       </Router>

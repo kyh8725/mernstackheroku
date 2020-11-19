@@ -20,7 +20,7 @@ export default class PlayApi extends Component {
               this.setVehicle(!this.state.vehicles);
             }}
           >
-            Add a New Vehicle
+            Add a New Vehicle{" "}
             <span>
               <FontAwesomeIcon
                 icon={this.state.vehicles ? faAngleUp : faAngleDown}
@@ -36,7 +36,9 @@ export default class PlayApi extends Component {
             <input id="make" placeholder="eg. Acura" required></input>
             <label for="model">Model</label>
             <input id="model" placeholder="eg. NSX" required></input>
-            <label for="year">Year</label>
+            <label for="year" placeholder="eg. 2020">
+              Year
+            </label>
             <input id="year" required></input>
             <label>Transmission</label>
             <label for="automatic">automatic</label>

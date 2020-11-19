@@ -71,11 +71,11 @@ export default class Vehicles extends Component {
             })
             .then((response) => {
               window.alert("vehicle successfully added to your garage");
-              window.location.href = `${this.state.API_URL}/protected`;
+              window.location.href = `${this.state.API_URL}/savedVehicle`;
             });
         });
     } else {
-      window.location.href = `${this.state.API_URL}/protected`;
+      window.location.href = `${this.state.API_URL}/dashboard`;
     }
   };
 

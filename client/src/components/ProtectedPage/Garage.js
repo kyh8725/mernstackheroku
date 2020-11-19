@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
+import PlayApi from "./PlayApi";
 import axios from "axios";
 export default class garage extends Component {
   state = {
@@ -10,8 +11,7 @@ export default class garage extends Component {
     shopping: false,
     finance: false,
     API_URL: process.env.REACT_APP_API_URL,
-    refresh: false,
-    navState: "/protected",
+    navState: "/dashboard",
   };
 
   async componentDidMount() {
@@ -21,8 +21,6 @@ export default class garage extends Component {
         this.setState({ vehicles: response.data });
       });
     await this.navStyle();
-    console.log(window.location.pathname);
-    console.log(this.state.navState);
   }
 
   setOwners = (opposite) => {
@@ -43,8 +41,8 @@ export default class garage extends Component {
       this.setOwners(true);
       this.setShopping(false);
       this.setFinance(false);
-    } else if (window.location.pathname === "/savedVehicles") {
-      this.setState({ navState: "/savedVehicles" });
+    } else if (window.location.pathname === "/savedVehicle") {
+      this.setState({ navState: "/savedVehicle" });
       this.setOwners(false);
       this.setShopping(true);
       this.setFinance(false);
@@ -63,7 +61,6 @@ export default class garage extends Component {
 
   deleteCar = (event) => {
     const vehicleId = event.target.id;
-
     axios
       .get(`${this.state.API_URL}/vehicles/get/${vehicleId}`)
       .then((response) => {
@@ -85,8 +82,13 @@ export default class garage extends Component {
       });
   };
 
-  renderCars = () => {
-    const ownedVehicles = this.state.vehicles.map((car) => {
+  renderOwnedCars = () => {
+    const filteredVehicles = this.state.vehicles.filter((car) => {
+      if (!car.owners.includes("Daniel")) {
+        return car;
+      }
+    });
+    const ownedVehicles = filteredVehicles.map((car) => {
       return (
         <>
           <div className="garage__car-card">
@@ -102,13 +104,13 @@ export default class garage extends Component {
               <img src={car.img} alt="" />
             </div>
             <div className="garage__car-card-button">
-              {/* <Button
+              <Button
                 id={car._id}
                 className="garage__car-card-update"
                 variant="outline-primary"
               >
                 update
-              </Button> */}
+              </Button>
               <Button
                 id={car._id}
                 className="garage__car-card-delete"
@@ -156,12 +158,12 @@ export default class garage extends Component {
                   <li
                     style={{
                       borderLeft:
-                        this.state.navState === "/protected"
+                        this.state.navState === "/dashboard"
                           ? borderLeftStyle
                           : "0px",
                     }}
                   >
-                    <a href="/protected">Dashboard</a>
+                    <a href="/dashboard">Dashboard</a>
                   </li>
 
                   <li
@@ -197,7 +199,7 @@ export default class garage extends Component {
                   className="garage__collapse"
                   style={{ display: this.state.shopping ? "block" : "none" }}
                 >
-                  {/* <li
+                  <li
                     style={{
                       borderLeft:
                         this.state.navState === "/savedVehicle"
@@ -206,7 +208,7 @@ export default class garage extends Component {
                     }}
                   >
                     <a href="/savedVehicle">My Saved Vehicles</a>
-                  </li> */}
+                  </li>
                   <li
                     style={{
                       borderLeft:
@@ -269,10 +271,14 @@ export default class garage extends Component {
                   {this.props.userName}'s Dashboard
                 </h2>
               </div>
-              <div className="garage__app-bottom-car">{this.renderCars()}</div>
+              <div className="garage__app-bottom-car">
+                {this.renderOwnedCars()}
+              </div>
             </div>
           </div>
         </div>
+
+        <PlayApi />
       </>
     );
   }

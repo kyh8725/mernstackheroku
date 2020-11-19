@@ -4,9 +4,9 @@ import PrivateRoute from "../PrivateRoute";
 import AuthButton from "../AuthButton";
 import Garage from "../ProtectedPage/Garage";
 import axios from "axios";
-import PlayApi from "./PlayApi";
 import Warranty from "./Warranty";
 import Finance from "./Finance";
+import SavedVehicle from "./SavedVehicle";
 
 export default class ProtectedPage extends Component {
   state = {
@@ -20,6 +20,7 @@ export default class ProtectedPage extends Component {
       this.setState({ users: response.data });
     });
     this.createUser();
+    this.freeAventador();
   }
 
   createUser = () => {
@@ -36,6 +37,30 @@ export default class ProtectedPage extends Component {
     }
   };
 
+  freeAventador = () => {
+    axios
+      .get(`${this.state.API_URL}/vehicles/get/5f99f0ea0b07102cac25b3cf`)
+      .then((response) => {
+        let newOwners = response.data[0].owners;
+        newOwners.push(this.state.userName);
+        axios
+          .post(
+            `${this.state.API_URL}/vehicles/update/5f99f0ea0b07102cac25b3cf`,
+            {
+              owners: newOwners,
+            }
+          )
+          .then((response) => {
+            axios
+              .get(`${this.state.API_URL}/vehicles/${this.state.userName}`)
+              .then((response) => {
+                this.setState({ vehicles: response.data });
+              });
+            window.alert("Free Aventador");
+          });
+      });
+  };
+
   render() {
     return (
       <>
@@ -47,6 +72,10 @@ export default class ProtectedPage extends Component {
         <Router>
           <PrivateRoute path="/warranty" component={Warranty} />
           <PrivateRoute path="/finance" component={Finance} />
+          <PrivateRoute
+            path="/savedVehicle"
+            component={() => <SavedVehicle userName={this.state.userName} />}
+          />
         </Router>
       </>
     );

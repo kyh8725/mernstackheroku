@@ -1,4 +1,5 @@
 .api {
+  text-align: center;
   &__vehicles {
     margin: 1rem;
     &-form {
@@ -8,4 +9,20 @@
 }
 .transmission {
   display: inline-block;
+}
+
+@include small {
+  .api {
+    margin: 2rem 3rem;
+  }
+}
+
+@include tablet {
+  .api {
+  }
+}
+@include desk {
+  .api {
+    margin: 2rem 12rem;
+  }
 }
