@@ -67,6 +67,10 @@ export default class ProtectedPage extends Component {
         <h3 style={{ textAlign: "center", color: "red" }}>
           <strong>This page is under construction</strong>
         </h3>
+        <h5 style={{ textAlign: "center", color: "red" }}>
+          you will get a black Aventador for default value. It will be added to
+          your account every time you log in.
+        </h5>
         <Garage userName={this.state.userName} />
         <Router>
           <PrivateRoute path="/warranty" component={Warranty} />
