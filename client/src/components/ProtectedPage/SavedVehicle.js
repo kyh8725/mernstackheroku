@@ -2,20 +2,22 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 
+import Spinner from "react-bootstrap/Spinner";
 export default class SavedVehicle extends Component {
   state = {
     vehicles: [],
+    isLoading: true,
     API_URL: process.env.REACT_APP_API_URL,
   };
 
   async componentDidMount() {
-    console.log(this.props);
     await axios
       .get(`${this.state.API_URL}/vehicles/${this.props.userName}`)
       .then((response) => {
-        this.setState({ vehicles: response.data });
+        this.setState({ vehicles: response.data, isLoading: false });
       });
   }
+
   deleteCar = (event) => {
     const vehicleId = event.target.id;
     axios
@@ -45,6 +47,7 @@ export default class SavedVehicle extends Component {
         return car;
       }
     });
+
     const ownedVehicles = filteredVehicles.map((car) => {
       return (
         <>
@@ -79,11 +82,19 @@ export default class SavedVehicle extends Component {
   };
 
   render() {
-    return (
-      <>
-        <h1 className="api">Saved Vehicles</h1>
-        <div className="saved">{this.renderCars()}</div>
-      </>
-    );
+    if (!this.state.isLoading) {
+      return (
+        <>
+          <h1 className="api">Saved Vehicles</h1>
+          <div className="saved">{this.renderCars()}</div>
+        </>
+      );
+    } else {
+      return (
+        <div className="spinner-wrap">
+          <Spinner animation="border" />
+        </div>
+      );
+    }
   }
 }

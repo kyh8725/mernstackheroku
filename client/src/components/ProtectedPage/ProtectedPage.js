@@ -7,12 +7,14 @@ import axios from "axios";
 import Warranty from "./Warranty";
 import Finance from "./Finance";
 import SavedVehicle from "./SavedVehicle";
+import Spinner from "react-bootstrap/Spinner";
 
 export default class ProtectedPage extends Component {
   state = {
     API_URL: process.env.REACT_APP_API_URL,
     users: [],
     vehicles: [],
+    isLoading: true,
     userName: this.props.user.username || this.props.user.displayName,
   };
 
@@ -55,14 +57,14 @@ export default class ProtectedPage extends Component {
             axios
               .get(`${this.state.API_URL}/vehicles/${this.state.userName}`)
               .then((response) => {
-                this.setState({ vehicles: response.data });
+                this.setState({ vehicles: response.data, isLoading: false });
               });
           });
       });
   };
 
   render() {
-    if (this.state.vehicles.length !== 0) {
+    if (!this.state.isLoading) {
       return (
         <>
           <AuthButton />
@@ -85,22 +87,9 @@ export default class ProtectedPage extends Component {
       );
     } else {
       return (
-        <>
-          <AuthButton />
-          <h4 style={{ textAlign: "center", color: "red" }}>
-            <strong>This page is under construction</strong>
-          </h4>
-
-          <Garage userName={this.state.userName} />
-          <Router>
-            <PrivateRoute path="/warranty" component={Warranty} />
-            <PrivateRoute path="/finance" component={Finance} />
-            <PrivateRoute
-              path="/savedVehicle"
-              component={() => <SavedVehicle userName={this.state.userName} />}
-            />
-          </Router>
-        </>
+        <div className="spinner-wrap">
+          <Spinner animation="border" />
+        </div>
       );
     }
   }
