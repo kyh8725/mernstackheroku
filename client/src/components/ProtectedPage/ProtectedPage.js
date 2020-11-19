@@ -39,13 +39,13 @@ export default class ProtectedPage extends Component {
 
   freeAventador = () => {
     axios
-      .get(`${this.state.API_URL}/vehicles/get/5f99f0ea0b07102cac25b3cf`)
+      .get(`${this.state.API_URL}/vehicles/get/5fb5cb4b1c67ee5fab5c3640`)
       .then((response) => {
         let newOwners = response.data[0].owners;
         newOwners.push(this.state.userName);
         axios
           .post(
-            `${this.state.API_URL}/vehicles/update/5f99f0ea0b07102cac25b3cf`,
+            `${this.state.API_URL}/vehicles/update/5fb5cb4b1c67ee5fab5c3640`,
             {
               owners: newOwners,
             }
@@ -56,7 +56,6 @@ export default class ProtectedPage extends Component {
               .then((response) => {
                 this.setState({ vehicles: response.data });
               });
-            window.alert("Free Aventador");
           });
       });
   };
