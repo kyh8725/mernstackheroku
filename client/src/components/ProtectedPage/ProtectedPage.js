@@ -19,8 +19,8 @@ export default class ProtectedPage extends Component {
     await axios.get(`${this.state.API_URL}/users/allUsers`).then((response) => {
       this.setState({ users: response.data });
     });
-    this.createUser();
-    this.freeAventador();
+    await this.createUser();
+    await this.freeAventador();
   }
 
   createUser = () => {
