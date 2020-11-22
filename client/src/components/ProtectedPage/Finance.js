@@ -13,9 +13,11 @@ export default class Finance extends Component {
     this.generate649();
     this.generateMax();
   }
+
   generate649Numbs = () => {
     return Math.floor(Math.random() * 49) + 1;
   };
+
   generateMaxNumb = () => {
     return Math.floor(Math.random() * 50) + 1;
   };
@@ -73,20 +75,39 @@ export default class Finance extends Component {
   render() {
     return (
       <div className="finance">
-        <h4 className="finance__title">Get Random Lottery Number</h4>
+        <h4 className="finance__title">Finance Or Lease?</h4>
+        <p>
+          There are a few things to consider when it comes to leasing or
+          financing your new vehicle. Let’s discuss the benefits of both!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
+          ipsa ab sint dolorum dicta id quidem facilis quam laboriosam odio
+          dolores et provident, tempore fugit explicabo corrupti dolor veritatis
+          alias. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Consequatur, doloremque laborum odio accusantium magnam maiores
+          eligendi vitae quae incidunt nemo et pariatur quisquam exercitationem
+          est commodi accusamus enim officia. Consequatur?
+        </p>
+        <h4 className="finance__title">Get random lottery numbers</h4>
         <div className="finance__lotto">
-          <h4> 649 </h4>
-          {this.render649()}
-          <Button onClick={this.generate649}>
-            <FontAwesomeIcon icon={faRedo} />
-          </Button>
-          <h4> MAX </h4>
-          {this.renderMax()}
-          <Button onClick={this.generateMax}>
-            <FontAwesomeIcon icon={faRedo} />
-          </Button>
+          <h4 className="finance__lotto-type"> 649 </h4>
+          <div className="finance__lotto-result">
+            {this.render649()}
+            <Button onClick={this.generate649}>
+              <FontAwesomeIcon icon={faRedo} />
+            </Button>
+          </div>
+          <h4 className="finance__lotto-type"> MAX </h4>
+          <div className="finance__lotto-result">
+            {this.renderMax()}
+            <Button onClick={this.generateMax}>
+              <FontAwesomeIcon icon={faRedo} />
+            </Button>
+          </div>
         </div>
         <Button
+          className="finance__lotto-buybutton"
           href="https://www.playnow.com/"
           target="/blank"
           rel="noopener noreferrer"

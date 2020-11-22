@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-
 import Spinner from "react-bootstrap/Spinner";
 export default class SavedVehicle extends Component {
   state = {

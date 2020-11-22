@@ -2,9 +2,35 @@
   margin: 2rem;
   text-align: center;
   &__lotto {
-    &-numbers {
-      width: 2rem;
-      height: 2rem;
+    &-type {
+      margin-top: 2rem;
     }
+    &-numbers {
+      text-align: center;
+      margin: 0.2rem;
+      width: 1.8rem;
+      height: 2.2rem;
+    }
+    &-result {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    &-buybutton {
+      margin: 2rem;
+    }
+  }
+}
+
+@include tablet {
+  .finance {
+    margin: 2rem 10rem;
+  }
+}
+
+@include desk {
+  .finance {
+    margin: 2rem 18rem;
   }
 }
